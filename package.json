@@ -1,0 +1,29 @@
+{
+  "name": "stylay",
+  "version": "0.0.1",
+  "description": "Compile your Stylus with ease",
+  "main": "app/index.js",
+  "scripts": {
+    "pretest": "jshint app && jscs app",
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/n6g7/stylay.git"
+  },
+  "author": "Nathan G",
+  "bugs": {
+    "url": "https://github.com/n6g7/stylay/issues"
+  },
+  "homepage": "https://github.com/n6g7/stylay#readme",
+  "dependencies": {
+    "electron": "^0.4.1",
+    "electron-prebuilt": "^0.36.4",
+    "stylus": "^0.53.0"
+  },
+  "devDependencies": {
+    "jscs": "^2.8.0",
+    "jshint": "^2.9.1"
+  }
+}
