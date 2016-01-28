@@ -1,29 +1,44 @@
 {
   "name": "stylay",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Compile your Stylus with ease",
   "main": "app/index.js",
   "scripts": {
-    "pretest": "jshint app && jscs app",
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ./app",
+    "pretest": "jshint src && jscs src -v",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp build && cd app && npm install",
+    "clean": "rm -rf dist",
+    "clean:osx": "rm -rf ./dist/osx",
+    "pack": "npm run clean && npm run pack:osx",
+    "pack:osx": "npm run clean:osx && electron-packager ./app Stylay --out=dist/osx --platform=darwin --arch=x64 --icon=assets/stylay.icns",
+    "build": "npm run build:osx",
+    "build:osx": "npm run pack:osx && electron-builder dist/osx/Stylay-darwin-x64/Stylay.app --platform=osx --out=dist/osx/Stylay-darwin-x64-setup --config=build-config.json"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/n6g7/stylay.git"
   },
-  "author": "Nathan G",
+  "author": "Nathan Gaberel",
   "bugs": {
     "url": "https://github.com/n6g7/stylay/issues"
   },
   "homepage": "https://github.com/n6g7/stylay#readme",
   "dependencies": {
+    "babel-preset-es2015": "^6.3.13",
     "electron": "^0.4.1",
+    "electron-builder": "^2.6.0",
+    "electron-packager": "^5.2.1",
     "electron-prebuilt": "^0.36.4",
-    "stylus": "^0.53.0"
-  },
-  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-stylus": "^2.3.0",
     "jscs": "^2.8.0",
-    "jshint": "^2.9.1"
+    "jshint": "^2.9.1",
+    "run-sequence": "^1.1.5"
   }
 }

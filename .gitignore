@@ -1,4 +1,6 @@
 bower_components
 node_modules
+app
+dist
 test.stylus
 test.stylus.css

@@ -1,0 +1,18 @@
+{
+  "name": "stylay",
+  "version": "0.0.2",
+  "description": "Compile your Stylus with ease",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/n6g7/stylay.git"
+  },
+  "author": "Nathan Gaberel",
+  "bugs": {
+    "url": "https://github.com/n6g7/stylay/issues"
+  },
+  "homepage": "https://github.com/n6g7/stylay",
+  "dependencies": {
+    "stylus": "^0.53.0"
+  }
+}
