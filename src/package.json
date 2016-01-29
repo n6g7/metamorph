@@ -1,6 +1,6 @@
 {
   "name": "stylay",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Compile your Stylus with ease",
   "main": "index.js",
   "repository": {
@@ -13,6 +13,7 @@
   },
   "homepage": "https://github.com/n6g7/stylay",
   "dependencies": {
+    "jade": "^1.11.0",
     "stylus": "^0.53.0"
   }
 }

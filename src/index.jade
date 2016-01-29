@@ -1,11 +1,12 @@
 doctype html
-html(ng-app="stylay")
+html(ng-app="Stylay")
   head
     meta(charset="utf-8")
     title Stylay
-  body(ng-controller="homeController")
-    input(type="file" file-model="file")
-    button(ng-click="compile()") Compile
+  body
+    div(ui-view="stylus")
+    div(ui-view="jade")
     
     script(src="js/vendor.js")
     script(src="js/stylay.js")
+    script(src="js/views.js")

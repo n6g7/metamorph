@@ -8,7 +8,7 @@ let mainWindow = null;
 app.on('window-all-closed', app.quit);
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({ width: 330, height: 60 });
+  mainWindow = new BrowserWindow({ width: 365, height: 80 });
 
   //mainWindow.webContents.openDevTools();
 

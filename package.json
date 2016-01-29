@@ -1,6 +1,6 @@
 {
   "name": "stylay",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Compile your Stylus with ease",
   "main": "app/index.js",
   "scripts": {
