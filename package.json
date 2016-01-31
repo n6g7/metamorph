@@ -11,9 +11,11 @@
     "clean": "rm -rf dist",
     "clean:osx": "rm -rf ./dist/osx",
     "pack": "npm run clean && npm run pack:osx",
-    "pack:osx": "npm run clean:osx && electron-packager ./app Stylay --out=dist/osx --platform=darwin --arch=x64 --icon=assets/stylay.icns",
+    "pack:osx": "npm run clean:osx && electron-packager ./app $npm_package_name --out=dist/osx --platform=darwin --arch=x64 --icon=assets/stylay.icns",
+    "compress": "npm run compress:osx",
+    "compress:osx": "tar -czf dist/osx/$npm_package_name-darwin-x64/$npm_package_name-v$npm_package_version.tar.gz dist/osx/$npm_package_name-darwin-x64/$npm_package_name.app",
     "build": "npm run build:osx",
-    "build:osx": "npm run pack:osx && electron-builder dist/osx/Stylay-darwin-x64/Stylay.app --platform=osx --out=dist/osx/Stylay-darwin-x64-setup --config=build-config.json"
+    "build:osx": "npm run pack:osx && npm run compress:osx && electron-builder dist/osx/$npm_package_name-darwin-x64/$npm_package_name.app --platform=osx --out=dist/osx/$npm_package_name-darwin-x64 --config=build-config.json"
   },
   "repository": {
     "type": "git",
