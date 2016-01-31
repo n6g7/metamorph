@@ -3,7 +3,7 @@ angular.module('Stylay.jade')
   $scope.file = {};
 
   $scope.compile = () => {
-    Jade.compileFile($scope.file.path)
+    return Jade.compileFile($scope.file.path)
     .then(() => console.log('Done :)'));
   };
 });

@@ -3,7 +3,7 @@ angular.module('Stylay.stylus')
   $scope.file = {};
 
   $scope.compile = () => {
-    Stylus.compileFile($scope.file.path)
+    return Stylus.compileFile($scope.file.path)
     .then(() => console.log('Done :)'));
   };
 });

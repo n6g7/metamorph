@@ -9,7 +9,8 @@ gulp.task('scripts', () => {
   gulp.src([
     'bower_components/angular/angular.min.js',
     'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-    'bower_components/angular-file-model/angular-file-model.js'
+    'bower_components/angular-file-model/angular-file-model.js',
+    'bower_components/angular-progress-button-styles/dist/angular-progress-button-styles.min.js'
   ])
   .pipe(plumber())
   .pipe(concat('vendor.js'))

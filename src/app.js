@@ -1,6 +1,7 @@
 'use strict';
 
 let stylay = angular.module('Stylay', [
+  'angular-progress-button-styles',
   'file-model',
   'ui.router',
   'Stylay.common',
@@ -25,3 +26,11 @@ stylay.config(($urlRouterProvider, $stateProvider) => {
     }
   });
 });
+
+stylay.config(['progressButtonConfigProvider', progressButtonConfigProvider => {
+  console.log(progressButtonConfigProvider);
+  progressButtonConfigProvider.profile({
+    style: 'shrink',
+    direction: 'horizontal'
+  });
+}]);

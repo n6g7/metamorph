@@ -3,9 +3,14 @@ html(ng-app="Stylay")
   head
     meta(charset="utf-8")
     title Stylay
+    link(rel="stylesheet" href="css/vendor.css")
+    link(rel="stylesheet" href="css/stylay.css")
   body
-    div(ui-view="stylus")
-    div(ui-view="jade")
+    header
+      h1 Stylay
+    ol.langs
+      li.lang.stylus(ui-view="stylus")
+      li.lang.jade(ui-view="jade")
     
     script(src="js/vendor.js")
     script(src="js/stylay.js")
