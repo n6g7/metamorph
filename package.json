@@ -34,6 +34,7 @@
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-babel": "^6.1.1",
     "gulp-concat": "^2.6.0",
+    "gulp-iife": "^0.2.4",
     "gulp-jade": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-stylus": "^2.3.0",

@@ -12,6 +12,8 @@ angular.module('Stylay.stylus')
   }
 
   function compileFile(filepath) {
+    if (filepath === undefined) return Promise.reject('No file provided');
+
     let targetFile = target.deduce(filepath, 'stylus', 'css');
 
     return fs.readFile(filepath)

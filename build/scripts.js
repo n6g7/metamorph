@@ -3,6 +3,7 @@
 let babel = require('gulp-babel');
 let concat = require('gulp-concat');
 let gulp = require('gulp');
+let iife = require('gulp-iife');
 let plumber = require('gulp-plumber');
 
 gulp.task('scripts', () => {
@@ -21,6 +22,7 @@ gulp.task('scripts', () => {
     'src/*/**/*.js'
   ])
   .pipe(plumber())
+  .pipe(iife())
   .pipe(concat('stylay.js'))
   .pipe(gulp.dest('app/js'));
 });
