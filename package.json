@@ -1,47 +1,85 @@
 {
   "name": "stylay",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Compile your Stylus with ease",
-  "main": "app/index.js",
+  "main": "app/bundle.main.js",
+  "author": "Nathan G <n6g7@gnab.fr>",
   "scripts": {
-    "start": "electron ./app",
-    "pretest": "jshint src && jscs src -v",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp build && cd app && npm install",
-    "clean": "rm -rf dist",
-    "clean:osx": "rm -rf ./dist/osx",
-    "pack": "npm run clean && npm run pack:osx",
-    "pack:osx": "npm run clean:osx && electron-packager ./app $npm_package_name --out=dist/osx --platform=darwin --arch=x64 --icon=assets/stylay.icns",
-    "compress": "npm run compress:osx",
-    "compress:osx": "tar -czf dist/osx/$npm_package_name-darwin-x64/$npm_package_name-v$npm_package_version.tar.gz dist/osx/$npm_package_name-darwin-x64/$npm_package_name.app",
-    "build": "npm run build:osx",
-    "build:osx": "npm run pack:osx && npm run compress:osx && electron-builder dist/osx/$npm_package_name-darwin-x64/$npm_package_name.app --platform=osx --out=dist/osx/$npm_package_name-darwin-x64 --config=build-config.json"
+    "pretest": "eslint --ext js,jsx src test",
+    "test": "mocha --compilers js:babel-core/register --require test/helper.js --recursive",
+    "start": "electron .",
+    "build": "webpack && rm -r dist || build -mwl"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/n6g7/stylay.git"
   },
-  "author": "Nathan Gaberel",
   "bugs": {
     "url": "https://github.com/n6g7/stylay/issues"
   },
   "homepage": "https://github.com/n6g7/stylay#readme",
   "dependencies": {
-    "babel-preset-es2015": "^6.3.13",
-    "electron": "^0.4.1",
-    "electron-builder": "^2.6.0",
-    "electron-packager": "^5.2.1",
-    "electron-prebuilt": "^0.36.4",
-    "gulp": "^3.9.0",
-    "gulp-angular-templatecache": "^1.8.0",
-    "gulp-babel": "^6.1.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-iife": "^0.2.4",
-    "gulp-jade": "^1.1.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-stylus": "^2.3.0",
-    "jscs": "^2.8.0",
-    "jshint": "^2.9.1",
-    "run-sequence": "^1.1.5"
+    "jade": "^1.11.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "stylus": "^0.54.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.5.0",
+    "cheerio": "^0.20.0",
+    "css-loader": "^0.23.1",
+    "electron-builder": "^5.7.0",
+    "electron-prebuilt": "^1.2.0",
+    "enzyme": "^2.3.0",
+    "eslint": "^2.13.1",
+    "eslint-plugin-react": "^5.2.2",
+    "file-loader": "^0.9.0",
+    "img-loader": "^1.2.2",
+    "mocha": "^2.5.3",
+    "react-addons-test-utils": "^15.1.0",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.1.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "mocha": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "globals": {
+      "Promise": true
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react"
+    ]
+  },
+  "build": {
+    "appId": "fr.gnab.stylay",
+    "app-category-type": "public.app-category.developer-tools"
   }
 }

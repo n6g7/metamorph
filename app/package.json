@@ -1,0 +1,20 @@
+{
+  "name": "stylay",
+  "productName": "Stylay",
+  "version": "0.1.0",
+  "description": "Compile your Stylus with ease",
+  "main": "bundle.main.js",
+  "author": "Nathan G <n6g7@gnab.fr>",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/n6g7/stylay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/n6g7/stylay/issues"
+  },
+  "homepage": "https://github.com/n6g7/stylay#readme",
+  "dependencies": {
+    "jade": "^1.11.0",
+    "stylus": "^0.54.5"
+  }
+}
