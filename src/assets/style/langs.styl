@@ -1,0 +1,57 @@
+rowHeight = 40px
+
+lang(col)
+  .title
+    background col
+
+    button
+      btn(col, white)
+
+  .row.late .extra
+    color col
+
+    .status
+      border-color col
+
+.langs
+  display flex
+  flex-flow column nowrap
+
+  .lang
+    .row
+      align-items center
+      color grayDark
+      display flex
+      flex-flow row nowrap
+      font-size 1.2rem
+      height rowHeight
+      justify-content space-between
+      line-height rowHeight
+      padding 0 internalPadding
+
+      &.title
+        color white
+
+        button
+          background white
+
+        .status
+          border-color white
+
+      &:nth-child(odd)
+        background white
+      &:nth-child(even)
+        background grayLightest
+
+      .extra
+        color grayLighter
+        font-size 1.2rem
+        letter-spacing 0.02em
+        transition 1s
+
+
+    &.stylus
+      lang(colStylus)
+
+    &.jade
+      lang(colJade)

@@ -1,74 +1,21 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900,200")
-
-header-height = 30px
-square-dimension = 200px;
+@import 'style/vars.styl'
+@import 'style/fonts.styl'
 
 html
-  height 100%
+  font-size 62.7%
 
-  body
-    font-family 'Source Sans Pro', sans-serif
-    height 100%
-    margin 0
-
-  *
-    box-sizing border-box
-
-header
-  background #333
-  color white
-  height header-height
-
-  h1
-    font-size 1.3em
-    line-height header-height
-    margin 0
-    text-align center
-
-.langs
-  align-items stretch
-  display flex
-  flex-wrap wrap
-  height square-dimension
-  list-style none
+body
+  font-family 'Karla', sans-serif
+  font-size 1.4rem
+  letter-spacing 0.05em
   margin 0
-  padding 0
+  user-select none
 
-  .lang
-    background-position 50% 50%
-    background-repeat no-repeat
-    background-size contain
-    border 10px solid rgba(white, 0.15)
-    color white
-    padding 5px
-    text-shadow 0 0 5px rgba(black, 0.5)
-    transition 1s
-    width 50%
+*
+  box-sizing border-box
 
-    h2
-      font-size 1.2em
-      text-align center
-      margin 0
-
-    button
-      background rgb(66 133 244)
-      display block
-      font-size 0.9em
-      line-height 2.5
-      margin 5px auto
-      padding 0 20px
-
-    &.compiling
-      border-color blue
-
-    &.done
-      border-color green
-
-    &.error
-      border-color red
-
-.stylus
-  background url("./stylus.svg") rgb(255 99 71)
-
-.jade
-  background url("./jade.svg") rgb(86 154 131)
+@import 'style/button.styl'
+@import 'style/header.styl'
+@import 'style/dropbox.styl'
+@import 'style/langs.styl'
+@import 'style/status.styl'

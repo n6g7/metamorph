@@ -19,6 +19,10 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'url!img'
+      },
+      {
+        test: /\.ttf$/,
+        loader: 'file'
       }
     ]
   },
