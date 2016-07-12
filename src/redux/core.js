@@ -6,7 +6,8 @@ export const INITIAL_STATE = fromJS({
 });
 
 export function addFile(state, file) {
-  return state;
+  const files = state.get('files').push(file);
+  return state.set('files', files);
 }
 
 export function removeFile(state, file) {
