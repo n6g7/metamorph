@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Switch from './common/Switch';
 import logo from '../assets/images/logo.svg';
 
 export default React.createClass({
@@ -12,14 +14,14 @@ export default React.createClass({
 
     return <header>
       <img src={logo} className="logo" />
-      <label>
-        Auto compilation
-        <input
-          type="checkbox"
-          checked={autoCompile}
+      <nav>
+        <Switch
+          value={autoCompile}
           onChange={toggleAutoCompile}
-        />
-      </label>
+        >
+          Auto compilation
+        </Switch>
+      </nav>
     </header>;
   }
 });

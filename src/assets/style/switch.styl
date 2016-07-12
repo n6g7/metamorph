@@ -1,0 +1,24 @@
+switchHeight = 15px
+switchWidth = 2 * switchHeight
+btnSize = switchHeight - 2px - 4px
+
+.switch
+  align-items center
+  border 2px solid grayLight
+  border-radius (switchHeight / 2)
+  display inline-flex
+  flex-flow row nowrap
+  height switchHeight
+  padding 1px
+  width switchWidth
+
+  .switch-btn
+    background grayLight
+    border-radius 50%
+    height btnSize
+    transition .5s
+    width btnSize
+
+  &.on .switch-btn
+    background green
+    transform translate(switchWidth - btnSize - 6px)

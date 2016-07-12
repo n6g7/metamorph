@@ -1,17 +1,23 @@
 headerHeight = 60px
 
 header
+  align-items center
   background colHeader
   color rgb(137, 137, 137)
+  display flex
+  flex-flow row nowrap
   height headerHeight
+  justify-content space-between
   line-height headerHeight
   padding 0 internalPadding
 
   .logo
     height headerHeight
 
-  label
-    float right
+  nav
+    align-items center
+    display flex
+    flex-flow row nowrap
 
-    input
+    .switch
       margin-left 5px
