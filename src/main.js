@@ -3,6 +3,8 @@ import { app, BrowserWindow } from 'electron';
 const windowWidth = 480;
 const windowHeight = 580;
 
+const isDev = process.env.NODE_ENV === 'dev';
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -13,9 +15,10 @@ let createWindow = () => {
     width: windowWidth
   });
 
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
+  const rootFile = isDev ? 'dev.html' : 'index.html';
+  mainWindow.loadURL(`file://${__dirname}/${rootFile}`);
 
-  mainWindow.webContents.openDevTools();
+  if (isDev) mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function () {
     mainWindow = null;
