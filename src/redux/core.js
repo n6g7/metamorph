@@ -1,4 +1,4 @@
-import {List, fromJS} from 'immutable';
+import { fromJS } from 'immutable';
 
 export const INITIAL_STATE = fromJS({
   files: [],
