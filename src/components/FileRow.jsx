@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Status from './common/Status';
+
 export default React.createClass({
   displayName: 'FileRow',
   propTypes: {
@@ -16,16 +18,15 @@ export default React.createClass({
     });
   },
   render: function() {
-    const status = this.state.utd ? 'row' : 'row late';
-
-    return <div className={status} onClick={this.toggle}>
+    return <div className="row" onClick={this.toggle}>
       <p>{this.props.filepath}</p>
       <div className="extra">
-        { this.state.utd ?
-          '06.05.16 at 13:04:27':
-          'Not up to date'
-        }
-        <span className="status"></span>
+        <Status late={!this.state.utd}>
+          { this.state.utd ?
+            '06.05.16 at 13:04:27':
+            'Not up to date'
+          }
+        </Status>
       </div>
     </div>;
   }

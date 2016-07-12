@@ -1,11 +1,13 @@
 import React from 'react';
 
+import CompileButton from './common/CompileButton';
+import Status from './common/Status';
+
 export default React.createClass({
   displayName: 'Footer',
   render: function() {
     return <footer>
-      <button onClick={this.compileAll}>Compile All</button>
-      <span className="status"></span>
+      <CompileButton label="Compile All" />
     </footer>;
   }
 });

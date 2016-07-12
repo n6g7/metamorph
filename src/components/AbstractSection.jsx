@@ -2,6 +2,7 @@ import React from 'react';
 import { List } from 'immutable';
 
 import FileRow from './FileRow';
+import CompileButton from './common/CompileButton';
 
 export default (displayName, name, className) => React.createClass({
   displayName,
@@ -15,8 +16,7 @@ export default (displayName, name, className) => React.createClass({
       <div className="row title">
         <p>{name}</p>
         <div className="extra">
-          <button>compile</button>
-          <span className="status"></span>
+          <CompileButton label="Compile" />
         </div>
       </div>
       {files.map((file, key) =>
