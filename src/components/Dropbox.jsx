@@ -22,10 +22,6 @@ export default React.createClass({
     return <div className="dropbox">
       <img src={files} />
       <p>Drop your files here or <button onClick={this.handlePick}>pick a file</button></p>
-      <div className="action">
-        <button>Compile All</button>
-        <span className="status"></span>
-      </div>
     </div>;
   }
 });
