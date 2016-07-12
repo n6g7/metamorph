@@ -19,9 +19,13 @@
   },
   "homepage": "https://github.com/n6g7/stylay#readme",
   "dependencies": {
+    "immutable": "^3.8.1",
     "jade": "^1.11.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
     "stylus": "^0.54.5"
   },
   "devDependencies": {

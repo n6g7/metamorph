@@ -1,16 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import Header from './components/Header';
-import Dropbox from './components/Dropbox';
+import makeStore from './redux/store';
+import Header from './containers/Header';
+import Dropbox from './containers/Dropbox';
 import Sections from './components/Sections';
 import './assets/style.styl';
 
+const store = makeStore();
+
 ReactDOM.render(
-  <div>
-    <Header />
-    <Dropbox />
-    <Sections />
-  </div>,
+  <Provider store={store}>
+    <div>
+      <Header />
+      <Dropbox />
+      <Sections />
+    </div>
+  </Provider>,
   document.getElementById('app')
 );
