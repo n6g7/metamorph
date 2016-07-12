@@ -1,9 +1,10 @@
 import React from 'react';
-import electron from 'electron';
+import { remote } from 'electron';
 
 import files from '../assets/images/files.svg';
 
-const {dialog} = electron.remote;
+const {dialog} = remote;
+const win = remote.getCurrentWindow();
 
 export default React.createClass({
   displayName: 'Dropbox',
@@ -11,8 +12,12 @@ export default React.createClass({
     addFile: React.PropTypes.func.isRequired
   },
   handlePick: function() {
-    const paths = dialog.showOpenDialog({
-      properties: ['openFile', 'multiSelections']
+    const paths = dialog.showOpenDialog(win, {
+      properties: ['openFile', 'multiSelections'],
+      filters: [
+        { name: 'Jade', extensions: ['jade', 'pug'] },
+        { name: 'Stylus', extensions: ['styl'] }
+      ]
     });
 
     if (!paths) return;
