@@ -1,10 +1,11 @@
 import React from 'react';
 import { List } from 'immutable';
+import path from 'path';
 
 import FileRow from './FileRow';
 import CompileButton from './common/CompileButton';
 
-export default (displayName, name, className) => React.createClass({
+export default (displayName, name, className, compiler) => React.createClass({
   displayName,
   propTypes: {
     files: React.PropTypes.instanceOf(List).isRequired
@@ -20,7 +21,11 @@ export default (displayName, name, className) => React.createClass({
         </div>
       </div>
       {files.map((file, key) =>
-        <FileRow filepath={file} key={key} />
+        <FileRow
+          filepath={file}
+          key={key}
+          compile={(data) => compiler(path.join(data.dir, data.base))}
+        />
       )}
     </div>;
   }

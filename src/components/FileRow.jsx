@@ -1,22 +1,14 @@
 import React from 'react';
 import path from 'path';
 
+import CompileButton from './common/CompileButton';
 import Status from './common/Status';
 
 export default React.createClass({
   displayName: 'FileRow',
   propTypes: {
+    compile: React.PropTypes.func.isRequired,
     filepath: React.PropTypes.object.isRequired
-  },
-  getInitialState: function() {
-    return {
-      utd: false
-    };
-  },
-  toggle: function() {
-    this.setState({
-      utd: !this.state.utd
-    });
   },
   renderPath: function() {
     const parts = this.props.filepath.dir
@@ -26,20 +18,18 @@ export default React.createClass({
     return parts.join(path.sep);
   },
   render: function() {
-    const { filepath: file } = this.props;
+    const { filepath: file, compile } = this.props;
 
-    return <div className="row" onClick={this.toggle}>
+    return <div className="row">
       <p>
         <span className="path">{this.renderPath()}/</span>
         {file.base}
       </p>
       <div className="extra">
-        <Status late={!this.state.utd}>
-          { this.state.utd ?
-            '06.05.16 at 13:04:27':
-            'Not up to date'
-          }
-        </Status>
+        <CompileButton
+          label="Compile"
+          onClick={() => compile(file)}
+        />
       </div>
     </div>;
   }
