@@ -1,6 +1,7 @@
 import React from 'react';
 import { remote } from 'electron';
 
+import { languages } from '../services/languages';
 import files from '../assets/images/files.svg';
 
 const {dialog} = remote;
@@ -14,10 +15,7 @@ export default React.createClass({
   handlePick: function() {
     const paths = dialog.showOpenDialog(win, {
       properties: ['openFile', 'multiSelections'],
-      filters: [
-        { name: 'Jade', extensions: ['jade', 'pug'] },
-        { name: 'Stylus', extensions: ['styl'] }
-      ]
+      filters: languages
     });
 
     if (!paths) return;

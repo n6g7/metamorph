@@ -1,3 +1,6 @@
+import path from 'path';
+import { findLanguage } from '../services/languages';
+
 export const types = {
   ADD_FILE: 'ADD_FILE',
   REMOVE_FILE: 'REMOVE_FILE',
@@ -5,9 +8,15 @@ export const types = {
 };
 
 export function addFile(file) {
+  const fileData = path.parse(file);
+
   return {
     type: types.ADD_FILE,
-    file
+    file: {
+      dir: fileData.dir,
+      base: fileData.base,
+      type: findLanguage(fileData.ext).name
+    }
   };
 }
 
