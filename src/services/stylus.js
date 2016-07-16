@@ -1,11 +1,10 @@
 import stylus from 'stylus';
+
 import { readFile, writeFile } from './fs';
+import { Stylus } from './languages';
 import { deduce } from './target';
 
-const FROM_EXT = 'styl';
-const TO_EXT = 'css';
-
-export function compileString(string) {
+function compileString(string) {
   return new Promise((fulfill, reject) => {
     stylus(string).render((err, data) => {
       if (err) reject(err);
@@ -17,7 +16,11 @@ export function compileString(string) {
 export function compileFile(filepath) {
   if (filepath === undefined) return Promise.reject('No file provided');
 
-  let targetFile = deduce(filepath, FROM_EXT, TO_EXT);
+  let targetFile = deduce(
+    filepath,
+    Stylus.extensions,
+    Stylus.destinationExtension
+  );
 
   return readFile(filepath)
   .then(compileString)

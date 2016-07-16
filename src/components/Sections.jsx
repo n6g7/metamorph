@@ -15,8 +15,8 @@ export default React.createClass({
   },
   render: function() {
     return <div className="langs">
-      <StylusSection files={this.getFiles(Stylus)} />
-      <JadeSection files={this.getFiles(Jade)} />
+      <StylusSection files={this.getFiles(Stylus.name)} />
+      <JadeSection files={this.getFiles(Jade.name)} />
     </div>;
   }
 });

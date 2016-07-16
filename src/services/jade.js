@@ -1,14 +1,17 @@
-import { writeFile } from './fs';
-import { deduce } from './target';
 import jade from 'jade';
 
-const FROM_EXT = 'jade';
-const TO_EXT = 'html';
+import { writeFile } from './fs';
+import { Jade } from './languages';
+import { deduce } from './target';
 
 export function compileFile(filepath) {
   if (filepath === undefined) return Promise.reject('No file provided');
 
-  let targetFile = deduce(filepath, FROM_EXT, TO_EXT);
+  let targetFile = deduce(
+    filepath,
+    Jade.extensions,
+    Jade.destinationExtension
+  );
 
   return writeFile(targetFile, jade.renderFile(filepath));
 }

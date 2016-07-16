@@ -1,16 +1,16 @@
-export const Stylus = 'Stylus';
-export const Jade = 'Pug';
+export const Stylus = {
+  name: 'Stylus',
+  extensions: ['styl'],
+  destinationExtension: 'css'
+};
 
-export const languages = [
-  {
-    name: Stylus,
-    extensions: ['styl']
-  },
-  {
-    name: Jade,
-    extensions: ['jade', 'pug']
-  }
-];
+export const Jade = {
+  name: 'Jade',
+  extensions: ['jade', 'pug'],
+  destinationExtension: 'html'
+};
+
+export const languages = [Stylus, Jade];
 
 export function findLanguage(ext) {
   if (ext[0] === '.') ext = ext.substring(1);
