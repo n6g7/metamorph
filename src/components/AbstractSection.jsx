@@ -10,6 +10,12 @@ export default (displayName, name, className, compiler) => React.createClass({
   propTypes: {
     files: React.PropTypes.instanceOf(List).isRequired
   },
+  compileFile: function(data) {
+    compiler(path.join(data.dir, data.base));
+  },
+  compileAll: function() {
+    this.props.files.forEach(this.compileFile);
+  },
   render: function() {
     const { files } = this.props;
 
@@ -17,14 +23,17 @@ export default (displayName, name, className, compiler) => React.createClass({
       <div className="row title">
         <p>{name}</p>
         <div className="extra">
-          <CompileButton label="Compile" />
+          <CompileButton
+            label="Compile"
+            onClick={this.compileAll}
+          />
         </div>
       </div>
       {files.map((file, key) =>
         <FileRow
           filepath={file}
           key={key}
-          compile={(data) => compiler(path.join(data.dir, data.base))}
+          compile={this.compileFile}
         />
       )}
     </div>;
