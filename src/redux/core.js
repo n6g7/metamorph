@@ -10,8 +10,11 @@ export function addFile(state, file) {
   return state.set('files', files);
 }
 
-export function removeFile(state, file) {
-  return state;
+export function removeFile(state, filePath) {
+  const files = state.get('files');
+  const index = files.findKey(f => f.get('source') === filePath);
+
+  return state.set('files', files.delete(index));
 }
 
 export function toggleAutoCompile(state) {
