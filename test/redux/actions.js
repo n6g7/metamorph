@@ -3,6 +3,7 @@ import {expect} from 'chai';
 import {
   types,
   addFile,
+  compileFile,
   removeFile,
   toggleAutoCompile
 } from '../../src/redux/actions';
@@ -28,6 +29,22 @@ describe('Action creators', () => {
 
     it('detects the file type', () => {
       expect(action).to.have.deep.property('file.type', Jade.name);
+    });
+  });
+
+  describe('compileFile()', () => {
+    let action;
+
+    beforeEach(() => {
+      action = compileFile('/yoyoyo.pug');
+    });
+
+    it('generates an action with the correct type', () => {
+      expect(action).to.have.property('type', types.COMPILE_FILE);
+    });
+
+    it('generates an action with the file path', () => {
+      expect(action).to.have.property('file', '/yoyoyo.pug');
     });
   });
 

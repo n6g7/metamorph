@@ -1,8 +1,10 @@
 import path from 'path';
+
 import { findLanguage } from '../services/languages';
 
 export const types = {
   ADD_FILE: 'ADD_FILE',
+  COMPILE_FILE: 'COMPILE_FILE',
   REMOVE_FILE: 'REMOVE_FILE',
   TOGGLE_AUTO_COMPILE: 'TOGGLE_AUTO_COMPILE'
 };
@@ -19,6 +21,13 @@ export function addFile(filePath) {
       type: lang.name,
       upToDate: false
     }
+  };
+}
+
+export function compileFile(file) {
+  return {
+    type: types.COMPILE_FILE,
+    file
   };
 }
 

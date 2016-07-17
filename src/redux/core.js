@@ -5,16 +5,23 @@ export const INITIAL_STATE = fromJS({
   autoCompile: false
 });
 
+function findFile(state, file) {
+  return state
+    .get('files')
+    .findKey(f => f === file);
+}
+
 export function addFile(state, file) {
   const files = state.get('files').push(Map(file));
   return state.set('files', files);
 }
 
-export function removeFile(state, filePath) {
-  const files = state.get('files');
-  const index = files.findKey(f => f.get('source') === filePath);
+export function compileFile(state, file) {
+  return state.setIn(['files', findFile(state, file), 'upToDate'], true);
+}
 
-  return state.set('files', files.delete(index));
+export function removeFile(state, file) {
+  return state.deleteIn(['files', findFile(state, file)]);
 }
 
 export function toggleAutoCompile(state) {
