@@ -23,6 +23,7 @@ describe('Action creators', () => {
     it('generates an action with source and destination info', () => {
       expect(action).to.have.deep.property('file.source', '/yoyoyo.pug');
       expect(action).to.have.deep.property('file.dest', '/yoyoyo.html');
+      expect(action).to.have.deep.property('file.upToDate', false);
     });
 
     it('detects the file type', () => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import path from 'path';
+import { Map } from 'immutable';
 
 import CompileButton from './common/CompileButton';
 
@@ -7,11 +8,11 @@ export default React.createClass({
   displayName: 'FileRow',
   propTypes: {
     compile: React.PropTypes.func.isRequired,
-    file: React.PropTypes.object.isRequired
+    file: React.PropTypes.instanceOf(Map).isRequired
   },
   renderSource: function() {
     const { file } = this.props;
-    const data = path.parse(file.source);
+    const data = path.parse(file.get('source'));
 
     const parts = data.dir
       .split(path.sep)

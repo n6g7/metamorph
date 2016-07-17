@@ -11,7 +11,7 @@ export default React.createClass({
     files: React.PropTypes.instanceOf(List).isRequired
   },
   getFiles: function(type) {
-    return this.props.files.filter(file => file.type === type);
+    return this.props.files.filter(file => file.get('type') === type);
   },
   render: function() {
     return <div className="langs">

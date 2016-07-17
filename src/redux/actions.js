@@ -16,7 +16,8 @@ export function addFile(filePath) {
     file: {
       source: filePath,
       dest: lang.findTarget(filePath),
-      type: lang.name
+      type: lang.name,
+      upToDate: false
     }
   };
 }

@@ -1,4 +1,4 @@
-import { fromJS } from 'immutable';
+import { fromJS, Map } from 'immutable';
 
 export const INITIAL_STATE = fromJS({
   files: [],
@@ -6,7 +6,7 @@ export const INITIAL_STATE = fromJS({
 });
 
 export function addFile(state, file) {
-  const files = state.get('files').push(file);
+  const files = state.get('files').push(Map(file));
   return state.set('files', files);
 }
 

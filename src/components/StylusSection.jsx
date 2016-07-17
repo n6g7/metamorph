@@ -5,5 +5,5 @@ export default AbstractSection(
   'StylusSection',
   'Stylus',
   'stylus',
-  file => compileFile(file.source)
+  file => compileFile(file.get('source'))
 );
