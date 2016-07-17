@@ -1,6 +1,6 @@
 import path from 'path';
 
-export function deduce(sourcePath, oldExts, newExt) {
+export const deduce = (oldExts, newExt) => sourcePath => {
   const parsed = path.parse(sourcePath);
 
   const oldExt = oldExts.find(ext => `.${ext}` === parsed.ext);

@@ -10,11 +10,8 @@ export default (displayName, name, className, compiler) => React.createClass({
   propTypes: {
     files: React.PropTypes.instanceOf(List).isRequired
   },
-  compileFile: function(data) {
-    compiler(path.join(data.dir, data.base));
-  },
   compileAll: function() {
-    this.props.files.forEach(this.compileFile);
+    this.props.files.forEach(compiler);
   },
   render: function() {
     const { files } = this.props;
@@ -31,9 +28,9 @@ export default (displayName, name, className, compiler) => React.createClass({
       </div>
       {files.map((file, key) =>
         <FileRow
-          filepath={file}
+          file={file}
           key={key}
-          compile={this.compileFile}
+          compile={compiler}
         />
       )}
     </div>;

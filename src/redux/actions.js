@@ -7,15 +7,16 @@ export const types = {
   TOGGLE_AUTO_COMPILE: 'TOGGLE_AUTO_COMPILE'
 };
 
-export function addFile(file) {
-  const fileData = path.parse(file);
+export function addFile(filePath) {
+  const fileData = path.parse(filePath);
+  const lang = findLanguage(fileData.ext);
 
   return {
     type: types.ADD_FILE,
     file: {
-      dir: fileData.dir,
-      base: fileData.base,
-      type: findLanguage(fileData.ext).name
+      source: filePath,
+      dest: lang.findTarget(filePath),
+      type: lang.name
     }
   };
 }

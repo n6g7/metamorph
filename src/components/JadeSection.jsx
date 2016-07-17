@@ -5,5 +5,5 @@ export default AbstractSection(
   'JadeSection',
   'Jade',
   'jade',
-  compileFile
+  file => compileFile(file.source)
 );

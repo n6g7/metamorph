@@ -8,23 +8,27 @@ export default React.createClass({
   displayName: 'FileRow',
   propTypes: {
     compile: React.PropTypes.func.isRequired,
-    filepath: React.PropTypes.object.isRequired
+    file: React.PropTypes.object.isRequired
   },
-  renderPath: function() {
-    const parts = this.props.filepath.dir
+  renderSource: function() {
+    const { file } = this.props;
+    const data = path.parse(file.source);
+
+    const parts = data.dir
       .split(path.sep)
       .slice(-2);
     parts.unshift('...');
-    return parts.join(path.sep);
+
+    return <p>
+      <span className="path">{parts.join(path.sep)}/</span>
+      {data.base}
+    </p>;
   },
   render: function() {
-    const { filepath: file, compile } = this.props;
+    const { file, compile } = this.props;
 
     return <div className="row">
-      <p>
-        <span className="path">{this.renderPath()}/</span>
-        {file.base}
-      </p>
+      {this.renderSource()}
       <div className="extra">
         <CompileButton
           label="Compile"

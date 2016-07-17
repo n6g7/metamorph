@@ -1,14 +1,31 @@
-export const Stylus = {
-  name: 'Stylus',
-  extensions: ['styl'],
-  destinationExtension: 'css'
-};
+import { deduce } from './target';
 
-export const Jade = {
-  name: 'Jade',
-  extensions: ['jade', 'pug'],
-  destinationExtension: 'html'
-};
+class Language
+{
+  constructor(name, extensions, destExt) {
+    this.name = name;
+    this.extensions = extensions;
+    this.destinationExtension = destExt;
+
+    this.deducer = deduce(this.extensions, this.destinationExtension);
+  }
+
+  findTarget(source) {
+    return this.deducer(source);
+  }
+}
+
+export const Stylus = new Language(
+  'Stylus',
+  ['styl'],
+  'css'
+);
+
+export const Jade = new Language(
+  'Jade',
+  ['jade', 'pug'],
+  'html'
+);
 
 export const languages = [Stylus, Jade];
 
