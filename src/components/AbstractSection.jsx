@@ -1,6 +1,5 @@
 import React from 'react';
 import { List } from 'immutable';
-import path from 'path';
 
 import FileRow from './FileRow';
 import CompileButton from './common/CompileButton';

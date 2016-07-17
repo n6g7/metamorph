@@ -2,7 +2,6 @@ import React from 'react';
 import path from 'path';
 
 import CompileButton from './common/CompileButton';
-import Status from './common/Status';
 
 export default React.createClass({
   displayName: 'FileRow',

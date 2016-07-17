@@ -1,7 +1,6 @@
 import React from 'react';
 
 import CompileButton from './common/CompileButton';
-import Status from './common/Status';
 
 export default React.createClass({
   displayName: 'Footer',
