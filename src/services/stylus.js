@@ -1,7 +1,6 @@
 import stylus from 'stylus';
 
 import { readFile, writeFile } from './fs';
-import { Stylus } from './languages';
 
 function compileString(string) {
   return new Promise((fulfill, reject) => {
@@ -12,12 +11,10 @@ function compileString(string) {
   });
 }
 
-export function compileFile(filepath) {
-  if (filepath === undefined) return Promise.reject('No file provided');
+export function compileFile(sourcePath, destPath) {
+  if (sourcePath === undefined) return Promise.reject('No file provided');
 
-  const targetFile = Stylus.findTarget(filepath);
-
-  return readFile(filepath)
+  return readFile(sourcePath)
   .then(compileString)
-  .then(css => writeFile(targetFile, css));
+  .then(css => writeFile(destPath, css));
 }

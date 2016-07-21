@@ -9,6 +9,7 @@ describe('<JadeSection />', () => {
   it('displays "Jade"', () => {
     const wrapper = shallow(<JadeSection
       files={List()}
+      compile={() => {}}
     />);
 
     expect(wrapper).to.have.descendants('.title');

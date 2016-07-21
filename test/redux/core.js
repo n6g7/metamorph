@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {fromJS, Map} from 'immutable';
+import {fromJS} from 'immutable';
 
 import {
   addFile,

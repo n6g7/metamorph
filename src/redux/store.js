@@ -1,8 +1,9 @@
 import { applyMiddleware, createStore } from 'redux';
 import createLogger from 'redux-logger';
 
-import reducer from './reducer';
 import { INITIAL_STATE } from './core';
+import { compiler } from './middlewares';
+import reducer from './reducer';
 
 const logger = createLogger({
   duration: true,
@@ -12,5 +13,5 @@ const logger = createLogger({
 export default () => createStore(
   reducer,
   INITIAL_STATE,
-  applyMiddleware(logger)
+  applyMiddleware(logger, compiler)
 );

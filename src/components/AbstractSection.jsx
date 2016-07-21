@@ -4,16 +4,19 @@ import { List } from 'immutable';
 import FileRow from './FileRow';
 import CompileButton from './common/CompileButton';
 
-export default (displayName, name, className, compiler) => React.createClass({
+export default (displayName, name, className) => React.createClass({
   displayName,
   propTypes: {
+    compile: React.PropTypes.func.isRequired,
     files: React.PropTypes.instanceOf(List).isRequired
   },
   compileAll: function() {
-    this.props.files.forEach(compiler);
+    this.props.files.forEach(this.props.compile);
   },
   render: function() {
-    const { files } = this.props;
+    const { compile, files } = this.props;
+
+    const upToDate = files.reduce((utd, file) => utd && file.get('upToDate'), true);
 
     return <div className={`lang ${className}`}>
       <div className="row title">
@@ -21,6 +24,7 @@ export default (displayName, name, className, compiler) => React.createClass({
         <div className="extra">
           <CompileButton
             label="Compile"
+            late={upToDate}
             onClick={this.compileAll}
           />
         </div>
@@ -29,7 +33,7 @@ export default (displayName, name, className, compiler) => React.createClass({
         <FileRow
           file={file}
           key={key}
-          compile={compiler}
+          compile={compile}
         />
       )}
     </div>;

@@ -9,6 +9,7 @@ describe('<StylusSection />', () => {
   it('displays "Stylus"', () => {
     const wrapper = shallow(<StylusSection
       files={List()}
+      compile={() => {}}
     />);
 
     expect(wrapper).to.have.descendants('.title');

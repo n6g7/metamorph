@@ -8,6 +8,7 @@ import { Stylus, Jade } from '../services/languages';
 export default React.createClass({
   displayName: 'Sections',
   propTypes: {
+    compile: React.PropTypes.func.isRequired,
     files: React.PropTypes.instanceOf(List).isRequired
   },
   getFiles: function(type) {
@@ -15,8 +16,14 @@ export default React.createClass({
   },
   render: function() {
     return <div className="langs">
-      <StylusSection files={this.getFiles(Stylus.name)} />
-      <JadeSection files={this.getFiles(Jade.name)} />
+      <StylusSection
+        compile={this.props.compile}
+        files={this.getFiles(Stylus.name)}
+      />
+      <JadeSection
+        compile={this.props.compile}
+        files={this.getFiles(Jade.name)}
+      />
     </div>;
   }
 });
