@@ -4,9 +4,10 @@ import { findLanguage } from '../services/languages';
 
 export const types = {
   ADD_FILE: 'ADD_FILE',
-  COMPILE_FILE: 'COMPILE_FILE',
   REMOVE_FILE: 'REMOVE_FILE',
-  TOGGLE_AUTO_COMPILE: 'TOGGLE_AUTO_COMPILE'
+  TOGGLE_AUTO_COMPILE: 'TOGGLE_AUTO_COMPILE',
+  COMPILE_FILE: 'COMPILE_FILE',
+  COMPILE_ALL: 'COMPILE_ALL'
 };
 
 export function addFile(filePath) {
@@ -24,13 +25,6 @@ export function addFile(filePath) {
   };
 }
 
-export function compileFile(file) {
-  return {
-    type: types.COMPILE_FILE,
-    file
-  };
-}
-
 export function removeFile(file) {
   return {
     type: types.REMOVE_FILE,
@@ -42,4 +36,17 @@ export function toggleAutoCompile() {
   return {
     type: types.TOGGLE_AUTO_COMPILE
   }
+}
+
+export function compileFile(file) {
+  return {
+    type: types.COMPILE_FILE,
+    file
+  };
+}
+
+export function compileAll() {
+  return {
+    type: types.COMPILE_ALL
+  };
 }

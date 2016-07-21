@@ -16,10 +16,6 @@ export function addFile(state, file) {
   return state.set('files', files);
 }
 
-export function compileFile(state, file) {
-  return state.setIn(['files', findFile(state, file), 'upToDate'], true);
-}
-
 export function removeFile(state, file) {
   return state.deleteIn(['files', findFile(state, file)]);
 }
@@ -27,4 +23,15 @@ export function removeFile(state, file) {
 export function toggleAutoCompile(state) {
   const previousValue = state.get('autoCompile');
   return state.set('autoCompile', !previousValue);
+}
+
+export function compileFile(state, file) {
+  return state.setIn(['files', findFile(state, file), 'upToDate'], true);
+}
+
+export function compileAll(state) {
+  return state.update(
+    'files',
+    files => files.map(file => file.set('upToDate', true))
+  );
 }
