@@ -3,9 +3,10 @@ import {expect} from 'chai';
 import {
   types,
   addFile,
-  compileFile,
   removeFile,
-  toggleAutoCompile
+  toggleAutoCompile,
+  compileFile,
+  compileAll
 } from '../../src/redux/actions';
 import {Jade} from '../../src/services/languages';
 
@@ -32,22 +33,6 @@ describe('Action creators', () => {
     });
   });
 
-  describe('compileFile()', () => {
-    let action;
-
-    beforeEach(() => {
-      action = compileFile('/yoyoyo.pug');
-    });
-
-    it('generates an action with the correct type', () => {
-      expect(action).to.have.property('type', types.COMPILE_FILE);
-    });
-
-    it('generates an action with the file path', () => {
-      expect(action).to.have.property('file', '/yoyoyo.pug');
-    });
-  });
-
   describe('removeFile()', () => {
     let action;
 
@@ -68,6 +53,29 @@ describe('Action creators', () => {
     it('generates an action with the correct type', () => {
       const action = toggleAutoCompile();
       expect(action).to.have.property('type', types.TOGGLE_AUTO_COMPILE);
+    });
+  });
+
+  describe('compileFile()', () => {
+    let action;
+
+    beforeEach(() => {
+      action = compileFile('/yoyoyo.pug');
+    });
+
+    it('generates an action with the correct type', () => {
+      expect(action).to.have.property('type', types.COMPILE_FILE);
+    });
+
+    it('generates an action with the file path', () => {
+      expect(action).to.have.property('file', '/yoyoyo.pug');
+    });
+  });
+
+  describe('compileAll()', () => {
+    it('generates an action with the correct type', () => {
+      const action = compileAll();
+      expect(action).to.have.property('type', types.COMPILE_ALL);
     });
   });
 });

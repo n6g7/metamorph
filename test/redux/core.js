@@ -3,9 +3,10 @@ import {fromJS} from 'immutable';
 
 import {
   addFile,
-  compileFile,
   removeFile,
-  toggleAutoCompile
+  toggleAutoCompile,
+  compileFile,
+  compileAll
 } from '../../src/redux/core';
 
 describe('Core logic', () => {
@@ -40,15 +41,6 @@ describe('Core logic', () => {
     });
   });
 
-  describe('compileFile()', () => {
-    it('updates the state of the file', () => {
-      const nextState = compileFile(state, demoFile);
-
-      const file = nextState.getIn(['files', 0]);
-      expect(file).to.have.property('upToDate', true);
-    });
-  });
-
   describe('removeFile()', () => {
     it('removes a file from the list', () => {
       const nextState = removeFile(state, demoFile);
@@ -69,7 +61,7 @@ describe('Core logic', () => {
       expect(autoCompile).to.equal(true);
     });
 
-    it('turns auto-compile on', () => {
+    it('turns auto-compile off', () => {
       const state = fromJS({
         autoCompile: true
       });
@@ -77,6 +69,42 @@ describe('Core logic', () => {
 
       const autoCompile = nextState.get('autoCompile');
       expect(autoCompile).to.equal(false);
+    });
+  });
+
+  describe('compileFile()', () => {
+    it('updates the state of the file', () => {
+      const nextState = compileFile(state, demoFile);
+
+      const file = nextState.getIn(['files', 0]);
+      expect(file).to.have.property('upToDate', true);
+    });
+  });
+
+  describe('compileAll()', () => {
+    it('updates the state of all files', () => {
+      const state = fromJS({
+        autoCompile: false,
+        files: [
+          {
+            source: '/a.styl',
+            dest: '/a.css',
+            type: 'Stylus',
+            upToDate: false
+          },
+          {
+            source: '/b.styl',
+            dest: '/b.css',
+            type: 'Stylus',
+            upToDate: false
+          }
+        ]
+      });
+      const nextState = compileAll(state);
+
+      nextState.get('files').forEach(file => {
+        expect(file).to.have.property('upToDate', true);
+      });
     });
   });
 });
