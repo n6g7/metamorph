@@ -32,7 +32,7 @@ export default React.createClass({
       <div className="extra">
         <CompileButton
           label="Compile"
-          late={file.get('upToDate')}
+          late={!file.get('upToDate')}
           onClick={() => compile(file)}
         />
       </div>

@@ -24,7 +24,7 @@ export default (displayName, name, className) => React.createClass({
         <div className="extra">
           <CompileButton
             label="Compile"
-            late={upToDate}
+            late={!upToDate}
             onClick={this.compileAll}
           />
         </div>
