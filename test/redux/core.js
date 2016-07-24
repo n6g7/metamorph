@@ -6,7 +6,8 @@ import {
   removeFile,
   toggleAutoCompile,
   compileFile,
-  compileAll
+  compileAll,
+  staleFile
 } from '../../src/redux/core';
 
 describe('Core logic', () => {
@@ -105,6 +106,24 @@ describe('Core logic', () => {
       nextState.get('files').forEach(file => {
         expect(file).to.have.property('upToDate', true);
       });
+    });
+  });
+
+  describe('staleFile()', () => {
+    it('updates the state of the file', () => {
+      const state = fromJS({
+        autoCompile: false,
+        files: [{
+          source: '/a.styl',
+          dest: '/a.css',
+          type: 'Stylus',
+          upToDate: true
+        }]
+      });
+      const nextState = staleFile(state, '/a.styl');
+
+      const file = nextState.getIn(['files', 0]);
+      expect(file).to.have.property('upToDate', false);
     });
   });
 });

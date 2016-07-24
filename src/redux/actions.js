@@ -7,7 +7,8 @@ export const types = {
   REMOVE_FILE: 'REMOVE_FILE',
   TOGGLE_AUTO_COMPILE: 'TOGGLE_AUTO_COMPILE',
   COMPILE_FILE: 'COMPILE_FILE',
-  COMPILE_ALL: 'COMPILE_ALL'
+  COMPILE_ALL: 'COMPILE_ALL',
+  STALE_FILE: 'STALE_FILE'
 };
 
 export function addFile(filePath) {
@@ -48,5 +49,12 @@ export function compileFile(file) {
 export function compileAll() {
   return {
     type: types.COMPILE_ALL
+  };
+}
+
+export function staleFile(file) {
+  return {
+    type: types.STALE_FILE,
+    file
   };
 }

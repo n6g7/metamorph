@@ -6,7 +6,8 @@ import {
   removeFile,
   toggleAutoCompile,
   compileFile,
-  compileAll
+  compileAll,
+  staleFile
 } from '../../src/redux/actions';
 import {Jade} from '../../src/services/languages';
 
@@ -76,6 +77,13 @@ describe('Action creators', () => {
     it('generates an action with the correct type', () => {
       const action = compileAll();
       expect(action).to.have.property('type', types.COMPILE_ALL);
+    });
+  });
+
+  describe('staleFile()', () => {
+    it('generates an action with the correct type', () => {
+      const action = staleFile();
+      expect(action).to.have.property('type', types.STALE_FILE);
     });
   });
 });

@@ -6,9 +6,27 @@ export const INITIAL_STATE = fromJS({
 });
 
 function findFile(state, file) {
-  return state
-    .get('files')
-    .findKey(f => f === file);
+  if (Map.isMap(file)) {
+    return state
+      .get('files')
+      .findKey(f => f.equals(file));
+  }
+  else {
+    return state
+      .get('files')
+      .findKey(f => f.get('source') === file);
+  }
+}
+
+const setFileState = newState => (state, file) => {
+  return state.setIn(
+    [
+      'files',
+      findFile(state, file),
+      'upToDate'
+    ],
+    newState
+  );
 }
 
 export function addFile(state, file) {
@@ -25,9 +43,7 @@ export function toggleAutoCompile(state) {
   return state.set('autoCompile', !previousValue);
 }
 
-export function compileFile(state, file) {
-  return state.setIn(['files', findFile(state, file), 'upToDate'], true);
-}
+export const compileFile = setFileState(true);
 
 export function compileAll(state) {
   return state.update(
@@ -35,3 +51,5 @@ export function compileAll(state) {
     files => files.map(file => file.set('upToDate', true))
   );
 }
+
+export const staleFile = setFileState(false);

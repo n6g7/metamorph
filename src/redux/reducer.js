@@ -5,7 +5,8 @@ import {
   removeFile,
   toggleAutoCompile,
   compileFile,
-  compileAll
+  compileAll,
+  staleFile
 } from './core';
 
 export default function reducer(state = INITIAL_STATE, action) {
@@ -20,6 +21,8 @@ export default function reducer(state = INITIAL_STATE, action) {
       return compileFile(state, action.file);
     case types.COMPILE_ALL:
       return compileAll(state);
+    case types.STALE_FILE:
+      return staleFile(state);
   }
 
   return state;
