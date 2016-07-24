@@ -85,5 +85,10 @@ describe('Action creators', () => {
       const action = staleFile();
       expect(action).to.have.property('type', types.STALE_FILE);
     });
+
+    it('generates an action without autoCompile', () => {
+      const action = staleFile();
+      expect(action).to.have.property('autoCompiled', false);
+    });
   });
 });

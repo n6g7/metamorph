@@ -110,7 +110,7 @@ describe('Core logic', () => {
   });
 
   describe('staleFile()', () => {
-    it('updates the state of the file', () => {
+    it('updates the state of the file (false)', () => {
       const state = fromJS({
         autoCompile: false,
         files: [{
@@ -120,10 +120,26 @@ describe('Core logic', () => {
           upToDate: true
         }]
       });
-      const nextState = staleFile(state, '/a.styl');
+      const nextState = staleFile(state, '/a.styl', false);
 
       const file = nextState.getIn(['files', 0]);
       expect(file).to.have.property('upToDate', false);
+    });
+
+    it('updates the state of the file (true)', () => {
+      const state = fromJS({
+        autoCompile: false,
+        files: [{
+          source: '/a.styl',
+          dest: '/a.css',
+          type: 'Stylus',
+          upToDate: false
+        }]
+      });
+      const nextState = staleFile(state, '/a.styl', true);
+
+      const file = nextState.getIn(['files', 0]);
+      expect(file).to.have.property('upToDate', true);
     });
   });
 });

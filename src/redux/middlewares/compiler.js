@@ -3,7 +3,7 @@ import { Jade, Stylus } from '../../services/languages';
 import { compileFile as jadeCompile } from '../../services/jade';
 import { compileFile as stylusCompile } from '../../services/stylus';
 
-function compileFile(file) {
+function compile(file) {
   const source = file.get('source');
   const dest = file.get('dest');
 
@@ -16,14 +16,15 @@ function compileFile(file) {
 }
 
 export default store => next => action => {
+  const state = store.getState();
+
   switch(action.type) {
     case types.COMPILE_FILE:
-      compileFile(action.file);
+      compile(action.file);
       break;
     case types.COMPILE_ALL:
-      store.getState()
-        .get('files')
-        .forEach(compileFile);
+      state.get('files')
+        .forEach(compile);
       break;
   }
 

@@ -52,4 +52,6 @@ export function compileAll(state) {
   );
 }
 
-export const staleFile = setFileState(false);
+export function staleFile(state, file, autoCompiled) {
+  return setFileState(autoCompiled)(state, file);
+}

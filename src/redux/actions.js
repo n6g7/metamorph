@@ -55,6 +55,7 @@ export function compileAll() {
 export function staleFile(file) {
   return {
     type: types.STALE_FILE,
+    autoCompiled: false,
     file
   };
 }
