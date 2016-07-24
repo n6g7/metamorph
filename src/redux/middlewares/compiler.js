@@ -26,6 +26,15 @@ export default store => next => action => {
       state.get('files')
         .forEach(compile);
       break;
+    case types.STALE_FILE:
+      if (state.get('autoCompile')) {
+        const file = state
+          .get('files')
+          .find(f => f.get('source') === action.file);
+        compile(file);
+        action.autoCompiled = true;
+      }
+      break;
   }
 
   return next(action);
