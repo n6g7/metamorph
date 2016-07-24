@@ -22,7 +22,7 @@ export default function reducer(state = INITIAL_STATE, action) {
     case types.COMPILE_ALL:
       return compileAll(state);
     case types.STALE_FILE:
-      return staleFile(state);
+      return staleFile(state, action.file);
   }
 
   return state;

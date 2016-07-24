@@ -1,7 +1,7 @@
-import { types } from './actions';
-import { Jade, Stylus } from '../services/languages';
-import { compileFile as jadeCompile } from '../services/jade';
-import { compileFile as stylusCompile } from '../services/stylus';
+import { types } from '../actions';
+import { Jade, Stylus } from '../../services/languages';
+import { compileFile as jadeCompile } from '../../services/jade';
+import { compileFile as stylusCompile } from '../../services/stylus';
 
 function compileFile(file) {
   const source = file.get('source');
@@ -14,7 +14,8 @@ function compileFile(file) {
       return stylusCompile(source, dest);
   }
 }
-export const compiler = store => next => action => {
+
+export default store => next => action => {
   switch(action.type) {
     case types.COMPILE_FILE:
       compileFile(action.file);

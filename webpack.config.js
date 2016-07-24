@@ -40,6 +40,7 @@ module.exports = {
   },
   externals: {
     'jade': 'commonjs jade',
-    'stylus': 'commonjs stylus'
+    'stylus': 'commonjs stylus',
+    'watchpack': 'commonjs watchpack'
   }
 };
