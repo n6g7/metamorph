@@ -17,7 +17,7 @@ class Language
 
 export const Stylus = new Language(
   'Stylus',
-  ['styl'],
+  ['styl', 'stylus'],
   'css'
 );
 
