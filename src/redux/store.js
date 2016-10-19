@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from 'redux';
 import createLogger from 'redux-logger';
 import { Map } from 'immutable';
 
-import { compiler, watcher } from './middlewares/index';
+import { badge, compiler, watcher } from './middlewares/index';
 import reducers from './reducers';
 
 const logger = createLogger({
@@ -13,5 +13,5 @@ const logger = createLogger({
 export default createStore(
   reducers,
   Map(),
-  applyMiddleware(logger, compiler, watcher)
+  applyMiddleware(logger, compiler, watcher, badge)
 );
