@@ -1,9 +1,9 @@
 import { applyMiddleware, createStore } from 'redux';
 import createLogger from 'redux-logger';
+import { Map } from 'immutable';
 
-import { INITIAL_STATE } from './core';
 import { compiler, watcher } from './middlewares/index';
-import reducer from './reducer';
+import reducers from './reducers';
 
 const logger = createLogger({
   duration: true,
@@ -11,7 +11,7 @@ const logger = createLogger({
 });
 
 export default createStore(
-  reducer,
-  INITIAL_STATE,
+  reducers,
+  Map(),
   applyMiddleware(logger, compiler, watcher)
 );
