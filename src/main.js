@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron';
+import { setMenu } from './menu';
 
 const windowWidth = 480;
 const windowHeight = 580;
@@ -9,11 +10,13 @@ const isDev = process.env.NODE_ENV === 'dev';
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
-let createWindow = () => {
+const createWindow = () => {
   mainWindow = new BrowserWindow({
     height: windowHeight,
     width: windowWidth
   });
+
+  setMenu();
 
   const rootFile = isDev ? 'dev.html' : 'index.html';
   mainWindow.loadURL(`file://${__dirname}/${rootFile}`);
