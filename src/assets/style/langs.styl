@@ -16,6 +16,7 @@ lang(col)
   .lang
     .row
       align-items center
+      background white
       color grayDark
       display flex
       flex-flow row nowrap
@@ -24,6 +25,9 @@ lang(col)
       justify-content space-between
       line-height rowHeight
       padding 0 internalPadding
+
+      &:not(.title)
+        border-bottom 2px solid rgb(239, 239, 239)
 
       .path
         color grayLight
@@ -37,11 +41,6 @@ lang(col)
         .status
           border-color white
 
-      &:nth-child(odd)
-        background white
-      &:nth-child(even)
-        background grayLightest
-
       .extra
         align-items center
         color grayLighter
@@ -51,6 +50,8 @@ lang(col)
         letter-spacing 0.02em
         transition 1s
 
+    & > *:last-child .row
+      border-bottom none
 
     &.stylus
       lang(colStylus)

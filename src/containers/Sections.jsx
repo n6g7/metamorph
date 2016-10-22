@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Sections from '../components/Sections';
-import { compileFile } from '../redux/actions';
+import { compileFile, removeFile } from '../redux/actions';
 
 const mapStateToProps = (state) => ({
   files: state.get('files')
@@ -9,7 +9,10 @@ const mapStateToProps = (state) => ({
 
 const SectionsContainer = connect(
   mapStateToProps,
-  { compile: compileFile }
+  {
+    compile: compileFile,
+    remove: removeFile
+  }
 )(Sections);
 
 export default SectionsContainer;

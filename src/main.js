@@ -26,6 +26,13 @@ const createWindow = () => {
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
+
+  mainWindow.on('scroll-touch-begin', () => {
+    mainWindow.webContents.send('scroll-touch-begin');
+  });
+  mainWindow.on('scroll-touch-end', () => {
+    mainWindow.webContents.send('scroll-touch-end');
+  });
 };
 
 app.on('ready', createWindow);
