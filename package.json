@@ -1,6 +1,6 @@
 {
   "name": "stylay",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compile your Stylus with ease",
   "main": "app/bundle.main.js",
   "author": "Nathan G <n6g7@gnab.fr>",
@@ -92,6 +92,6 @@
   },
   "build": {
     "appId": "fr.gnab.stylay",
-    "app-category-type": "public.app-category.developer-tools"
+    "category": "public.app-category.developer-tools"
   }
 }
