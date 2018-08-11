@@ -1,6 +1,6 @@
 {
   "name": "stylay",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Compile your Stylus with ease",
   "main": "app/bundle.main.js",
   "author": "Nathan G <n6g7@gnab.fr>",
