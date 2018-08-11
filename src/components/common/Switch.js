@@ -1,13 +1,14 @@
-import React from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 
-export default React.createClass({
-  displayName: "Switch",
-  propTypes: {
-    children: React.PropTypes.string,
-    onChange: React.PropTypes.func,
-    value: React.PropTypes.bool,
-  },
-  renderInput: function(active) {
+class Switch extends PureComponent {
+  static propTypes = {
+    children: PropTypes.string,
+    onChange: PropTypes.func,
+    value: PropTypes.bool,
+  }
+
+  renderInput(active) {
     const { onChange, value } = this.props
     const classes = ["switch"]
 
@@ -18,8 +19,9 @@ export default React.createClass({
         <span className="switch-btn" />
       </div>
     )
-  },
-  render: function() {
+  }
+
+  render() {
     const { children, onChange } = this.props
 
     if (!children) return this.renderInput(true)
@@ -30,5 +32,7 @@ export default React.createClass({
         {this.renderInput(false)}
       </div>
     )
-  },
-})
+  }
+}
+
+export default Switch

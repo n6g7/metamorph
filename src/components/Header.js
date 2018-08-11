@@ -1,15 +1,16 @@
-import React from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 
 import Switch from "./common/Switch"
 import logo from "../assets/images/logo.svg"
 
-export default React.createClass({
-  displayName: "Header",
-  propTypes: {
-    autoCompile: React.PropTypes.bool.isRequired,
-    toggleAutoCompile: React.PropTypes.func.isRequired,
-  },
-  render: function() {
+class Header extends PureComponent {
+  static propTypes = {
+    autoCompile: PropTypes.bool.isRequired,
+    toggleAutoCompile: PropTypes.func.isRequired,
+  }
+
+  render() {
     const { autoCompile, toggleAutoCompile } = this.props
 
     return (
@@ -22,5 +23,7 @@ export default React.createClass({
         </nav>
       </header>
     )
-  },
-})
+  }
+}
+
+export default Header

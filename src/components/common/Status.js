@@ -1,12 +1,13 @@
-import React from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 
-export default React.createClass({
-  displayName: "Status",
-  propTypes: {
-    children: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.element]),
-    late: React.PropTypes.bool,
-  },
-  render: function() {
+class Status extends PureComponent {
+  static propTypes = {
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    late: PropTypes.bool,
+  }
+
+  render() {
     const { children, late } = this.props
     const classes = ["status-block"]
 
@@ -18,5 +19,7 @@ export default React.createClass({
         <span className="status" />
       </span>
     )
-  },
-})
+  }
+}
+
+export default Status

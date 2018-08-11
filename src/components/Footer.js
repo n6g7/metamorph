@@ -1,15 +1,16 @@
-import React from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import { List } from "immutable"
 
 import CompileButton from "./common/CompileButton"
 
-export default React.createClass({
-  displayName: "Footer",
-  propTypes: {
-    files: React.PropTypes.instanceOf(List).isRequired,
-    compileAll: React.PropTypes.func.isRequired,
-  },
-  render: function() {
+class Footer extends PureComponent {
+  static propTypes = {
+    files: PropTypes.instanceOf(List).isRequired,
+    compileAll: PropTypes.func.isRequired,
+  }
+
+  render() {
     const { compileAll, files } = this.props
 
     const upToDate = files.reduce((utd, file) => utd && file.get("upToDate"), true)
@@ -19,5 +20,7 @@ export default React.createClass({
         <CompileButton label="Compile All" late={!upToDate} onClick={compileAll} />
       </footer>
     )
-  },
-})
+  }
+}
+
+export default Footer

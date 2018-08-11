@@ -1,18 +1,19 @@
-import React from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import path from "path"
 import { Map } from "immutable"
 
 import CompileButton from "./common/CompileButton"
 import SwipeContainer from "./SwipeContainer"
 
-export default React.createClass({
-  displayName: "FileRow",
-  propTypes: {
-    compile: React.PropTypes.func.isRequired,
-    file: React.PropTypes.instanceOf(Map).isRequired,
-    remove: React.PropTypes.func.isRequired,
-  },
-  renderSource: function() {
+class FileRow extends PureComponent {
+  static propTypes = {
+    compile: PropTypes.func.isRequired,
+    file: PropTypes.instanceOf(Map).isRequired,
+    remove: PropTypes.func.isRequired,
+  }
+
+  renderSource() {
     const { file } = this.props
     const data = path.parse(file.get("source"))
 
@@ -25,11 +26,13 @@ export default React.createClass({
         {data.base}
       </p>
     )
-  },
-  swipe: function(cb) {
+  }
+
+  swipe(cb) {
     cb(true).then(() => this.props.remove(this.props.file))
-  },
-  render: function() {
+  }
+
+  render() {
     const { file, compile } = this.props
 
     return (
@@ -46,5 +49,7 @@ export default React.createClass({
         </div>
       </SwipeContainer>
     )
-  },
-})
+  }
+}
+
+export default FileRow

@@ -1,21 +1,25 @@
-import React from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import { List } from "immutable"
 
 import FileRow from "./FileRow"
 import CompileButton from "./common/CompileButton"
 
 export default (displayName, name, className) =>
-  React.createClass({
-    displayName,
-    propTypes: {
-      compile: React.PropTypes.func.isRequired,
-      files: React.PropTypes.instanceOf(List).isRequired,
-      remove: React.PropTypes.func.isRequired,
-    },
-    compileAll: function() {
+  class extends PureComponent {
+    static displayName = displayName
+
+    static propTypes = {
+      compile: PropTypes.func.isRequired,
+      files: PropTypes.instanceOf(List).isRequired,
+      remove: PropTypes.func.isRequired,
+    }
+
+    compileAll() {
       this.props.files.forEach(this.props.compile)
-    },
-    render: function() {
+    }
+
+    render() {
       const { compile, files, remove } = this.props
 
       const upToDate = files.reduce((utd, file) => utd && file.get("upToDate"), true)
@@ -33,5 +37,5 @@ export default (displayName, name, className) =>
           ))}
         </div>
       )
-    },
-  })
+    }
+  }

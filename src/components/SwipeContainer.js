@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
 import _ from "lodash"
 import { exec } from "child_process"
@@ -47,17 +48,15 @@ if (process.platform === "darwin") {
   // vertical, not horizontal, behavior.
 }
 
-export default class SwipeContainer extends Component {
-  static displayName = "SwipeContainer"
-
+export default class SwipeContainer extends PureComponent {
   static propTypes = {
     children: PropTypes.object.isRequired,
-    shouldEnableSwipe: React.PropTypes.func,
-    onSwipeLeft: React.PropTypes.func,
-    onSwipeLeftClass: React.PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    onSwipeRight: React.PropTypes.func,
-    onSwipeRightClass: React.PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    onSwipeCenter: React.PropTypes.func,
+    shouldEnableSwipe: PropTypes.func,
+    onSwipeLeft: PropTypes.func,
+    onSwipeLeftClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    onSwipeRight: PropTypes.func,
+    onSwipeRightClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    onSwipeCenter: PropTypes.func,
   }
 
   static defaultProps = {

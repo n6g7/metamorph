@@ -1,15 +1,16 @@
-import React from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 
 import Status from "./Status"
 
-export default React.createClass({
-  displayName: "CompileButton",
-  propTypes: {
-    label: React.PropTypes.string,
-    late: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
-  },
-  render: function() {
+class CompileButton extends PureComponent {
+  static propTypes = {
+    label: PropTypes.string,
+    late: PropTypes.bool,
+    onClick: PropTypes.func,
+  }
+
+  render() {
     const { label, late, onClick } = this.props
 
     return (
@@ -17,5 +18,7 @@ export default React.createClass({
         <button onClick={onClick}>{label}</button>
       </Status>
     )
-  },
-})
+  }
+}
+
+export default CompileButton

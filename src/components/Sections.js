@@ -1,21 +1,23 @@
-import React from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import { List } from "immutable"
 
 import StylusSection from "./StylusSection"
 import JadeSection from "./JadeSection"
 import { Stylus, Jade } from "../services/languages"
 
-export default React.createClass({
-  displayName: "Sections",
-  propTypes: {
-    compile: React.PropTypes.func.isRequired,
-    files: React.PropTypes.instanceOf(List).isRequired,
-    remove: React.PropTypes.func.isRequired,
-  },
-  getFiles: function(type) {
+class Sections extends PureComponent {
+  static propTypes = {
+    compile: PropTypes.func.isRequired,
+    files: PropTypes.instanceOf(List).isRequired,
+    remove: PropTypes.func.isRequired,
+  }
+
+  getFiles(type) {
     return this.props.files.filter(file => file.get("type") === type)
-  },
-  render: function() {
+  }
+
+  render() {
     return (
       <div className="langs">
         <StylusSection
@@ -30,5 +32,7 @@ export default React.createClass({
         />
       </div>
     )
-  },
-})
+  }
+}
+
+export default Sections

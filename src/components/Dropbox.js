@@ -1,4 +1,5 @@
-import React from "react"
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import { remote } from "electron"
 
 import { languages } from "../services/languages"
@@ -7,12 +8,12 @@ import files from "../assets/images/files.svg"
 const { dialog } = remote
 const win = remote.getCurrentWindow()
 
-export default React.createClass({
-  displayName: "Dropbox",
-  propTypes: {
-    addFile: React.PropTypes.func.isRequired,
-  },
-  handlePick: function() {
+class Dropbox extends PureComponent {
+  static propTypes = {
+    addFile: PropTypes.func.isRequired,
+  }
+
+  handlePick() {
     const paths = dialog.showOpenDialog(win, {
       properties: ["openFile", "multiSelections"],
       filters: languages,
@@ -20,8 +21,9 @@ export default React.createClass({
 
     if (!paths) return
     paths.forEach(this.props.addFile)
-  },
-  render: function() {
+  }
+
+  render() {
     return (
       <div className="dropbox">
         <img src={files} />
@@ -30,5 +32,7 @@ export default React.createClass({
         </p>
       </div>
     )
-  },
-})
+  }
+}
+
+export default Dropbox
