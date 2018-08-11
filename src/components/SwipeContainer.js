@@ -85,7 +85,7 @@ export default class SwipeContainer extends PureComponent {
     window.addEventListener("scroll-touch-end", this._onScrollTouchEnd)
   }
 
-  componentWillReceiveProps() {
+  UNSAFE_componentWillReceiveProps() {
     this.isEnabled = null
   }
 

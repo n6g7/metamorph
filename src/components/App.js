@@ -1,11 +1,11 @@
-import React, { PureComponent } from "react"
+import React from "react"
 
 import Header from "../containers/Header"
 import Dropbox from "../containers/Dropbox"
 import Sections from "../containers/Sections"
 import Footer from "../containers/Footer"
 
-export default () => (
+const App = () => (
   <div>
     <Header />
     <Dropbox />
@@ -13,3 +13,5 @@ export default () => (
     <Footer />
   </div>
 )
+
+export default App

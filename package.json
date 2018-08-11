@@ -8,9 +8,8 @@
   "scripts": {
     "build": "webpack-dev-server",
     "dev": "NODE_ENV=dev electron .",
-    "pretest": "yarn test:format && yarn test:lint",
     "start": "electron .",
-    "test": "mocha --compilers js:babel-core/register --require test/helper.js --recursive",
+    "test": "yarn test:format && yarn test:lint",
     "test:format": "prettier -l \"src/**/*.js\"",
     "test:lint": "eslint src"
   },
@@ -54,7 +53,6 @@
     "file-loader": "^0.9.0",
     "ignore-styles": "^4.0.0",
     "img-loader": "^1.3.1",
-    "mocha": "^2.5.3",
     "prettier": "^1.14.2",
     "react-addons-test-utils": "^15.3.2",
     "style-loader": "^0.13.1",
