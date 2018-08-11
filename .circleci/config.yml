@@ -1,0 +1,57 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/stylay
+
+    docker:
+      - image: node:8
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-{{ .Branch }}
+            - v1-master-{{ checksum "yarn.lock" }}
+            - v1-master
+
+      - run:
+          name: Install dependencies
+          command: yarn
+
+      - run:
+          name: Check lockfile is up-to-date
+          command: yarn check
+
+      - run:
+          name: Install global dependencies
+          command: yarn global add greenkeeper-lockfile coveralls
+
+      - run:
+          name: Update lockfile with greenkeeper
+          command: greenkeeper-lockfile-update
+
+      - run:
+          name: Run tests
+          command: yarn test --coverage
+
+      - run:
+          name: Upload lockfile with greenkeeper
+          command: greenkeeper-lockfile-upload
+
+      - run:
+          name: Send coverage to coveralls.io
+          command: |
+            if [ -z "$CIRCLE_PR_REPONAME" ];
+            then
+              cat coverage/lcov.info | coveralls;
+            fi
+
+      - save_cache:
+          key: v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.config/yarn
+            - ~/.yarn
+            - ~/stylay/node_modules
