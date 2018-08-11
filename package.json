@@ -4,12 +4,15 @@
   "description": "Compile your Stylus with ease",
   "main": "app/bundle.main.js",
   "author": "Nathan G <n6g7@gnab.fr>",
+  "license": "MIT",
   "scripts": {
-    "pretest": "eslint --ext js,jsx src test",
-    "test": "mocha --compilers js:babel-core/register --require test/helper.js --recursive",
-    "start": "electron .",
     "build": "webpack-dev-server",
-    "dev": "NODE_ENV=dev electron ."
+    "dev": "NODE_ENV=dev electron .",
+    "pretest": "yarn test:format && yarn test:lint",
+    "start": "electron .",
+    "test": "mocha --compilers js:babel-core/register --require test/helper.js --recursive",
+    "test:format": "prettier -l \"src/**/*.js\"",
+    "test:lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -33,6 +36,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
+    "babel-eslint": "^8.2.6",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
@@ -44,12 +48,13 @@
     "css-loader": "^0.23.1",
     "electron": "^2.0.7",
     "enzyme": "^2.5.1",
-    "eslint": "^2.13.1",
-    "eslint-plugin-react": "^5.2.2",
+    "eslint": "^5.3.0",
+    "eslint-plugin-react": "^7.10.0",
     "file-loader": "^0.9.0",
     "ignore-styles": "^4.0.0",
     "img-loader": "^1.3.1",
     "mocha": "^2.5.3",
+    "prettier": "^1.14.2",
     "react-addons-test-utils": "^15.3.2",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",

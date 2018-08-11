@@ -1,94 +1,94 @@
-import { app, Menu, shell } from 'electron';
+import { app, Menu, shell } from "electron"
 
 const template = [
   {
     label: app.getName(),
     submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
+      { role: "about" },
+      { type: "separator" },
+      { role: "services" },
+      { type: "separator" },
+      { role: "hide" },
+      { role: "hideothers" },
+      { role: "unhide" },
+      { type: "separator" },
+      { role: "quit" },
+    ],
   },
   {
-    label: 'File',
+    label: "File",
     submenu: [
       {
-        label: 'Open',
-        accelerator: 'CmdOrCtrl+O',
-        click (item, focusedWindow) {}
-      }
-    ]
+        label: "Open",
+        accelerator: "CmdOrCtrl+O",
+        click() {},
+      },
+    ],
   },
   {
-    label: 'View',
+    label: "View",
     submenu: [
       {
-        label: 'Reload',
-        accelerator: 'CmdOrCtrl+R',
-        click (item, focusedWindow) {
+        label: "Reload",
+        accelerator: "CmdOrCtrl+R",
+        click(item, focusedWindow) {
           if (focusedWindow) focusedWindow.reload()
-        }
+        },
       },
       {
-        role: 'togglefullscreen'
+        role: "togglefullscreen",
       },
       {
-        label: 'Toggle Developer Tools',
-        accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
-        click (item, focusedWindow) {
+        label: "Toggle Developer Tools",
+        accelerator: process.platform === "darwin" ? "Alt+Command+I" : "Ctrl+Shift+I",
+        click(item, focusedWindow) {
           if (focusedWindow) focusedWindow.webContents.toggleDevTools()
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
-    role: 'window',
+    role: "window",
     submenu: [
       {
-        label: 'Minimize',
-        accelerator: 'CmdOrCtrl+M',
-        role: 'minimize'
+        label: "Minimize",
+        accelerator: "CmdOrCtrl+M",
+        role: "minimize",
       },
       {
-        label: 'Zoom',
-        role: 'zoom'
+        label: "Zoom",
+        role: "zoom",
       },
-      { type: 'separator' },
+      { type: "separator" },
       {
-        label: 'Bring All to Front',
-        role: 'front'
-      }
-    ]
+        label: "Bring All to Front",
+        role: "front",
+      },
+    ],
   },
   {
-    role: 'help',
+    role: "help",
     submenu: [
       {
-        label: 'GitHub project',
-        click () {
-          shell.openExternal('https://github.com/n6g7/stylay')
-        }
+        label: "GitHub project",
+        click() {
+          shell.openExternal("https://github.com/n6g7/stylay")
+        },
       },
       {
-        label: 'Report an issue',
-        click () {
-          shell.openExternal('https://github.com/n6g7/stylay/issues')
-        }
-      }
-    ]
-  }
-];
+        label: "Report an issue",
+        click() {
+          shell.openExternal("https://github.com/n6g7/stylay/issues")
+        },
+      },
+    ],
+  },
+]
 
 function makeMenu() {
-  return Menu.buildFromTemplate(template);
+  return Menu.buildFromTemplate(template)
 }
 
 export function setMenu() {
-  Menu.setApplicationMenu(makeMenu());
+  Menu.setApplicationMenu(makeMenu())
 }
