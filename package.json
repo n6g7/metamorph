@@ -6,8 +6,10 @@
   "author": "Nathan G <n6g7@gnab.fr>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack-dev-server",
+    "build": "yarn build:js && electron-builder",
+    "build:js": "webpack",
     "dev": "NODE_ENV=dev electron .",
+    "serve": "yarn build:js && webpack-dev-server",
     "start": "electron .",
     "test": "yarn test:format && yarn test:lint",
     "test:format": "prettier -l \"src/**/*.js\"",
@@ -43,6 +45,7 @@
     "babel-preset-stage-2": "^6.17.0",
     "css-loader": "^0.23.1",
     "electron": "^2.0.7",
+    "electron-builder": "^20.27.1",
     "eslint": "^5.3.0",
     "eslint-plugin-react": "^7.10.0",
     "file-loader": "^0.9.0",
@@ -86,6 +89,6 @@
   },
   "build": {
     "appId": "fr.gnab.stylay",
-    "category": "public.app-category.developer-tools"
+    "productName": "Stylay"
   }
 }

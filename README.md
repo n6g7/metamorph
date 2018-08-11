@@ -3,12 +3,12 @@
 ## Install
 
 ```sh
-npm i
+yarn
 ```
 
 ## How to
 
-- dev? `webpack-dev-server` and `npm run dev`
-- test? `npm test`
-- launch app? `npm start`
-- build app? `npm run build`
+- dev? `yarn serve` and `yarn dev`
+- test? `yarn test`
+- launch app? `yarn start`
+- build app? `yarn build`
