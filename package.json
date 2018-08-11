@@ -8,7 +8,7 @@
     "pretest": "eslint --ext js,jsx src test",
     "test": "mocha --compilers js:babel-core/register --require test/helper.js --recursive",
     "start": "electron .",
-    "build": "webpack && rm -r dist || build -mwl",
+    "build": "webpack-dev-server",
     "dev": "NODE_ENV=dev electron ."
   },
   "repository": {
@@ -42,8 +42,7 @@
     "chai-immutable": "^1.6.0",
     "cheerio": "^0.20.0",
     "css-loader": "^0.23.1",
-    "electron-builder": "^5.35.0",
-    "electron-prebuilt": "^1.4.4",
+    "electron": "^2.0.7",
     "enzyme": "^2.5.1",
     "eslint": "^2.13.1",
     "eslint-plugin-react": "^5.2.2",
