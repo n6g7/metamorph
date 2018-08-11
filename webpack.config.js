@@ -1,46 +1,43 @@
 module.exports = {
   entry: {
-    main: './src/main',
-    renderer: './src/app'
+    main: "./src/main",
+    renderer: "./src/app",
   },
-  target: 'electron-renderer',
+  target: "electron-renderer",
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: "babel",
       },
       {
         test: /\.styl$/,
         exclude: /node_modules/,
-        loader: 'style!css!stylus'
+        loader: "style!css!stylus",
       },
       {
         test: /\.svg$/,
-        loader: 'url!img'
+        loader: "url!img",
       },
       {
         test: /\.ttf$/,
-        loader: 'file'
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
+        loader: "file",
+      },
+    ],
   },
   output: {
-    path: __dirname + '/app',
-    publicPath: '/',
-    filename: 'bundle.[name].js'
+    path: __dirname + "/app",
+    publicPath: "/",
+    filename: "bundle.[name].js",
   },
   node: {
     __dirname: false,
-    __filename: false
+    __filename: false,
   },
   externals: {
-    'jade': 'commonjs jade',
-    'stylus': 'commonjs stylus',
-    'watchpack': 'commonjs watchpack'
-  }
-};
+    jade: "commonjs jade",
+    stylus: "commonjs stylus",
+    watchpack: "commonjs watchpack",
+  },
+}
