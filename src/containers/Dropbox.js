@@ -1,13 +1,13 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux"
 
-import Dropbox from '../components/Dropbox';
-import { addFile } from '../redux/actions';
+import Dropbox from "../components/Dropbox"
+import { addFile } from "../redux/actions"
 
-const mapStateToProps = () => ({});
+const mapStateToProps = () => ({})
 
 const DropboxContainer = connect(
   mapStateToProps,
-  { addFile }
-)(Dropbox);
+  { addFile },
+)(Dropbox)
 
-export default DropboxContainer;
+export default DropboxContainer

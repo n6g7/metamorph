@@ -1,23 +1,22 @@
-import React from 'react';
+import React from "react"
 
 export default React.createClass({
-  displayName: 'Status',
+  displayName: "Status",
   propTypes: {
-    children: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element
-    ]),
-    late: React.PropTypes.bool
+    children: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.element]),
+    late: React.PropTypes.bool,
   },
   render: function() {
-    const { children, late } = this.props;
-    const classes = ['status-block'];
+    const { children, late } = this.props
+    const classes = ["status-block"]
 
-    if (late) classes.push('late');
+    if (late) classes.push("late")
 
-    return <span className={ classes.join(' ') }>
-      {children}
-      <span className="status"></span>
-    </span>
-  }
-});
+    return (
+      <span className={classes.join(" ")}>
+        {children}
+        <span className="status" />
+      </span>
+    )
+  },
+})

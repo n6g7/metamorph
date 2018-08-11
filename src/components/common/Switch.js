@@ -1,33 +1,34 @@
-import React from 'react';
+import React from "react"
 
 export default React.createClass({
-  displayName: 'Switch',
+  displayName: "Switch",
   propTypes: {
     children: React.PropTypes.string,
     onChange: React.PropTypes.func,
-    value: React.PropTypes.bool
+    value: React.PropTypes.bool,
   },
   renderInput: function(active) {
-    const { onChange, value } = this.props;
-    const classes = ['switch'];
+    const { onChange, value } = this.props
+    const classes = ["switch"]
 
-    if (value) classes.push('on');
+    if (value) classes.push("on")
 
-    return <div
-      className={classes.join(' ')}
-      onClick={active ? onChange : null}
-    >
-      <span className="switch-btn"></span>
-    </div>;
+    return (
+      <div className={classes.join(" ")} onClick={active ? onChange : null}>
+        <span className="switch-btn" />
+      </div>
+    )
   },
   render: function() {
-    const { children, onChange } = this.props;
+    const { children, onChange } = this.props
 
-    if (!children) return this.renderInput(true);
+    if (!children) return this.renderInput(true)
 
-    return <div onClick={onChange}>
-      {children}
-      {this.renderInput(false)}
-    </div>;
-  }
-});
+    return (
+      <div onClick={onChange}>
+        {children}
+        {this.renderInput(false)}
+      </div>
+    )
+  },
+})

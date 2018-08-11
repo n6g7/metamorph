@@ -1,25 +1,23 @@
-import React from 'react';
-import { List } from 'immutable';
+import React from "react"
+import { List } from "immutable"
 
-import CompileButton from './common/CompileButton';
+import CompileButton from "./common/CompileButton"
 
 export default React.createClass({
-  displayName: 'Footer',
+  displayName: "Footer",
   propTypes: {
     files: React.PropTypes.instanceOf(List).isRequired,
-    compileAll: React.PropTypes.func.isRequired
+    compileAll: React.PropTypes.func.isRequired,
   },
   render: function() {
-    const { compileAll, files } = this.props;
+    const { compileAll, files } = this.props
 
-    const upToDate = files.reduce((utd, file) => utd && file.get('upToDate'), true);
+    const upToDate = files.reduce((utd, file) => utd && file.get("upToDate"), true)
 
-    return <footer>
-      <CompileButton
-        label="Compile All"
-        late={!upToDate}
-        onClick={compileAll}
-      />
-    </footer>;
-  }
-});
+    return (
+      <footer>
+        <CompileButton label="Compile All" late={!upToDate} onClick={compileAll} />
+      </footer>
+    )
+  },
+})

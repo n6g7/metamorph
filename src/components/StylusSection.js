@@ -1,7 +1,3 @@
-import AbstractSection from './AbstractSection';
+import AbstractSection from "./AbstractSection"
 
-export default AbstractSection(
-  'StylusSection',
-  'Stylus',
-  'stylus'
-);
+export default AbstractSection("StylusSection", "Stylus", "stylus")

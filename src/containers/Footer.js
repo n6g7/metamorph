@@ -1,15 +1,15 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux"
 
-import Footer from '../components/Footer';
-import { compileAll } from '../redux/actions';
+import Footer from "../components/Footer"
+import { compileAll } from "../redux/actions"
 
-const mapStateToProps = (state) => ({
-  files: state.get('files')
-});
+const mapStateToProps = state => ({
+  files: state.get("files"),
+})
 
 const FooterContainer = connect(
   mapStateToProps,
-  { compileAll }
-)(Footer);
+  { compileAll },
+)(Footer)
 
-export default FooterContainer;
+export default FooterContainer
