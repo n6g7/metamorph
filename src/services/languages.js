@@ -16,9 +16,9 @@ class Language {
 
 export const Stylus = new Language("Stylus", ["styl", "stylus"], "css")
 
-export const Jade = new Language("Jade", ["jade", "pug"], "html")
+export const Pug = new Language("Pug", ["jade", "pug"], "html")
 
-export const languages = [Stylus, Jade]
+export const languages = [Stylus, Pug]
 
 export function findLanguage(ext) {
   if (ext[0] === ".") ext = ext.substring(1)

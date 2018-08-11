@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import { List } from "immutable"
 
 import StylusSection from "./StylusSection"
-import JadeSection from "./JadeSection"
-import { Stylus, Jade } from "../services/languages"
+import PugSection from "./PugSection"
+import { Stylus, Pug } from "../services/languages"
 
 class Sections extends PureComponent {
   static propTypes = {
@@ -25,10 +25,10 @@ class Sections extends PureComponent {
           remove={this.props.remove}
           files={this.getFiles(Stylus.name)}
         />
-        <JadeSection
+        <PugSection
           compile={this.props.compile}
           remove={this.props.remove}
-          files={this.getFiles(Jade.name)}
+          files={this.getFiles(Pug.name)}
         />
       </div>
     )

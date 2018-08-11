@@ -15,7 +15,7 @@ export default (displayName, name, className) =>
       remove: PropTypes.func.isRequired,
     }
 
-    compileAll() {
+    compileAll = () => {
       this.props.files.forEach(this.props.compile)
     }
 

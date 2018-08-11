@@ -8,7 +8,7 @@ class Switch extends PureComponent {
     value: PropTypes.bool,
   }
 
-  renderInput(active) {
+  renderInput = active => {
     const { onChange, value } = this.props
     const classes = ["switch"]
 

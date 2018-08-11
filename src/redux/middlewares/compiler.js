@@ -1,6 +1,6 @@
 import { types } from "../actions"
-import { Jade, Stylus } from "../../services/languages"
-import { compileFile as jadeCompile } from "../../services/jade"
+import { Pug, Stylus } from "../../services/languages"
+import { compileFile as pugCompile } from "../../services/pug"
 import { compileFile as stylusCompile } from "../../services/stylus"
 
 function compile(file) {
@@ -8,8 +8,8 @@ function compile(file) {
   const dest = file.get("dest")
 
   switch (file.get("type")) {
-    case Jade.name:
-      return jadeCompile(source, dest)
+    case Pug.name:
+      return pugCompile(source, dest)
     case Stylus.name:
       return stylusCompile(source, dest)
   }

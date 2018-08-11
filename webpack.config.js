@@ -17,6 +17,10 @@ module.exports = {
         loader: "style!css!stylus",
       },
       {
+        test: /\.json$/,
+        loader: "json",
+      },
+      {
         test: /\.svg$/,
         loader: "url!img",
       },
@@ -36,7 +40,7 @@ module.exports = {
     __filename: false,
   },
   externals: {
-    jade: "commonjs jade",
+    pug: "commonjs pug",
     stylus: "commonjs stylus",
     watchpack: "commonjs watchpack",
   },

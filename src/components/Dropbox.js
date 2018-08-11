@@ -13,7 +13,7 @@ class Dropbox extends PureComponent {
     addFile: PropTypes.func.isRequired,
   }
 
-  handlePick() {
+  handlePick = () => {
     const paths = dialog.showOpenDialog(win, {
       properties: ["openFile", "multiSelections"],
       filters: languages,

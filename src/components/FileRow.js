@@ -13,7 +13,7 @@ class FileRow extends PureComponent {
     remove: PropTypes.func.isRequired,
   }
 
-  renderSource() {
+  renderSource = () => {
     const { file } = this.props
     const data = path.parse(file.get("source"))
 
@@ -28,7 +28,7 @@ class FileRow extends PureComponent {
     )
   }
 
-  swipe(cb) {
+  swipe = cb => {
     cb(true).then(() => this.props.remove(this.props.file))
   }
 
