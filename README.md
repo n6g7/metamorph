@@ -1,5 +1,7 @@
 # Stylay
 
+![Stylay](./screenshot.png)
+
 ## Install
 
 ```sh
