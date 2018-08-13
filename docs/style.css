@@ -30,9 +30,9 @@ a {
   display: block;
 }
 h1 {
-  margin: 4rem 0 1.2rem 0;
   font-size: 5.600000000000001rem;
   line-height: 7rem;
+  margin: 4rem 0 1.2rem 0;
 }
 h2 {
   font-size: 2.4rem;
@@ -63,11 +63,17 @@ a.button {
   color: #fff;
   background: #26262f;
   padding: 1.6rem 2.4rem;
-  margin: 4rem 0 1.6rem 0;
+  margin: 4rem 0 2rem 0;
+}
+a.button:hover {
+  background: #141418;
 }
 a.link {
   display: inline-block;
   color: inherit;
+}
+a.link:hover {
+  color: #141418;
 }
 img.logo {
   height: 3.2rem;
@@ -75,23 +81,55 @@ img.logo {
 img.screenshot {
   width: 100%;
 }
-main {
+body {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-main section.content {
+body main {
   width: 35.6rem;
   margin-right: 11.200000000000001rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-main section.preview {
+body aside {
   width: 48rem;
 }
 p.credit {
   color: #81818b;
+}
+@media screen and (max-width: 1172px), (max-height: 890px) {
+  html {
+    font-size: 56%;
+  }
+  html main {
+    margin-right: 7.2rem;
+  }
+}
+@media screen and (max-width: 941px), (max-height: 725px) {
+  body {
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  body main,
+  body aside {
+    width: 480px;
+  }
+  body main {
+    margin: 6.4rem 0 2.4rem 0;
+  }
+  body aside {
+    margin: 2.4rem 0 6.4rem 0;
+  }
+}
+@media screen and (max-width: 560px) {
+  body main,
+  body aside {
+    width: 100%;
+    padding: 0 4rem;
+  }
 }
