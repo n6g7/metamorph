@@ -1,1 +1,107 @@
-// Add style here
+// Import
+
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700')
+
+
+
+
+// Variables
+
+grid-size = 0.4rem
+
+color-dark = #26262F
+color-mid = #81818B
+color-light = #FFFFFF
+
+
+
+
+// Set up
+
+*
+  margin 0
+  padding 0
+  text-decoration none
+  outline none
+  border none
+  -webkit-box-sizing border-box
+  -moz-box-sizing border-box
+  box-sizing border-box
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+html
+  height 100%
+  font-size 62.5%
+
+body
+  height 100%
+  font-family 'Karla', sans-serif
+  font-weight 400
+  color color-dark
+
+img
+  display block
+
+a
+  color inherit
+  cursor pointer
+  display block
+
+
+
+
+// Text
+
+h1
+  margin grid-size*10 0 grid-size*3 0
+  font-size grid-size*14
+  line-height grid-size*17.5
+
+h2
+  font-size grid-size*6
+  line-height grid-size*7.5
+  margin grid-size*3 0 grid-size*4 0
+
+p, a, li
+  font-size grid-size*4
+  line-height grid-size*6
+  margin grid-size*3 0
+
+a
+  font-weight 700
+
+li
+  padding-left grid-size*5
+  background-image url("./assets/bullet.png")
+  background-repeat no-repeat
+  background-position left center
+  background-size grid-size*2 grid-size*3
+
+
+
+
+// Action
+
+a.button
+  color color-light
+  background color-dark
+  padding grid-size*4 grid-size*6
+  margin grid-size*10 0 grid-size*4 0
+
+a.link
+  display block
+  color inherit
+
+
+
+
+// Image
+
+img.logo
+  height grid-size*8
+  margin grid-size*10 0
+
+
+
+// End

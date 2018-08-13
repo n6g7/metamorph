@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Karla:400,700");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+body {
+  height: 100%;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  color: #26262f;
+}
+img {
+  display: block;
+}
+a {
+  color: inherit;
+  cursor: pointer;
+  display: block;
+}
+h1 {
+  margin: 4rem 0 1.2rem 0;
+  font-size: 5.600000000000001rem;
+  line-height: 7rem;
+}
+h2 {
+  font-size: 2.4rem;
+  line-height: 3rem;
+  margin: 1.2rem 0 1.6rem 0;
+}
+p,
+a,
+li {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  margin: 1.2rem 0;
+}
+a {
+  font-weight: 700;
+}
+li {
+  padding-left: 2rem;
+  background-image: url("./assets/bullet.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0.8rem 1.2rem;
+}
+a.button {
+  color: #fff;
+  background: #26262f;
+  padding: 1.6rem 2.4rem;
+  margin: 4rem 0 1.6rem 0;
+}
+a.link {
+  display: block;
+  color: inherit;
+}
+img.logo {
+  height: 3.2rem;
+  margin: 4rem 0;
+}
+main:first-child {
+  margin-top: 0;
+}
+main:last-child {
+  margin-bottom: 0;
+}
