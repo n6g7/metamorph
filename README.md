@@ -1,6 +1,4 @@
-# Stylay
-
-![Stylay](./screenshot.png)
+# Metamorph
 
 ## Install
 
