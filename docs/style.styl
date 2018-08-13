@@ -66,13 +66,17 @@ h2
 p, a, li
   font-size grid-size*4
   line-height grid-size*6
-  margin grid-size*3 0
+
+p
+  margin grid-size*3 0 0 0
 
 a
   font-weight 700
 
 li
   padding-left grid-size*5
+  margin grid-size*3 0 0 0
+  list-style none
   background-image url("./assets/bullet.png")
   background-repeat no-repeat
   background-position left center
@@ -90,7 +94,7 @@ a.button
   margin grid-size*10 0 grid-size*4 0
 
 a.link
-  display block
+  display inline-block
   color inherit
 
 
@@ -100,7 +104,32 @@ a.link
 
 img.logo
   height grid-size*8
-  margin grid-size*10 0
+  margin 0 0 grid-size*10 0
+
+img.screenshot
+  width 100%
+
+
+
+// Structure
+
+main
+  width 100%
+  height 100%
+  display flex
+  justify-content center
+  align-items center
+
+  section.content
+    width grid-size*89
+    margin-right grid-size*28
+
+  section.preview
+    width grid-size*120
+
+p.credit
+  color color-mid
+
 
 
 

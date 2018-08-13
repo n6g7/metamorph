@@ -44,13 +44,17 @@ a,
 li {
   font-size: 1.6rem;
   line-height: 2.4rem;
-  margin: 1.2rem 0;
+}
+p {
+  margin: 1.2rem 0 0 0;
 }
 a {
   font-weight: 700;
 }
 li {
   padding-left: 2rem;
+  margin: 1.2rem 0 0 0;
+  list-style: none;
   background-image: url("./assets/bullet.png");
   background-repeat: no-repeat;
   background-position: left center;
@@ -63,16 +67,30 @@ a.button {
   margin: 4rem 0 1.6rem 0;
 }
 a.link {
-  display: block;
+  display: inline-block;
   color: inherit;
 }
 img.logo {
   height: 3.2rem;
-  margin: 4rem 0;
+  margin: 0 0 4rem 0;
 }
-main:first-child {
-  margin-top: 0;
+img.screenshot {
+  width: 100%;
 }
-main:last-child {
-  margin-bottom: 0;
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main section.content {
+  width: 35.6rem;
+  margin-right: 11.200000000000001rem;
+}
+main section.preview {
+  width: 48rem;
+}
+p.credit {
+  color: #81818b;
 }
