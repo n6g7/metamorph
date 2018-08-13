@@ -33,5 +33,9 @@ html
       
       video(width="auto" height="auto" loop="true" autoplay="autoplay")
         source(src="./assets/metamorph.mp4", type="video/mp4")
-        source(src="movie.ogg", type="video/ogg")
-        |Your browser does not support the video tag.
+        // WebM/VP8 for Firefox4, Opera, and Chrome
+        source(src="./assets/metamorph.webm", type="video/webm")
+        // M4V for Apple
+        source(src="./assets/metamorph.m4v", type="video/mp4")
+        // Ogg/Vorbis for older Firefox and Opera versions
+        source(src="./assets/metamorph.ogv", type="video/ogg")
