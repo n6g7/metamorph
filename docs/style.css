@@ -72,7 +72,6 @@ a.link {
 }
 img.logo {
   height: 3.2rem;
-  margin: 0 0 4rem 0;
 }
 img.screenshot {
   width: 100%;
@@ -87,6 +86,9 @@ main {
 main section.content {
   width: 35.6rem;
   margin-right: 11.200000000000001rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 main section.preview {
   width: 48rem;
