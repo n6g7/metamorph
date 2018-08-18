@@ -4,7 +4,7 @@ import { setMenu } from "./menu"
 const windowWidth = 480
 const windowHeight = 580
 
-const isDev = process.env.NODE_ENV === "dev"
+const isDev = process.env.NODE_ENV === "development"
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
