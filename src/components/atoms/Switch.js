@@ -20,12 +20,13 @@ const Widget = styled.span`
 
   &::after {
     background: ${p => p.theme.colours.grey};
+    border-radius: 1px;
     content: '';
     left: 3px;
     position: absolute;
     height: ${p => p.theme.spacing.mult(2.5)}px;
     top: 3px;
-    transition: .5s;
+    transition: .8s;
     width: ${p => p.theme.spacing.mult(2.5)}px;
   }
 

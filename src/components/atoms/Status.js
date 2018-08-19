@@ -5,7 +5,7 @@ export default styled.div`
   box-sizing: border-box;
   height: ${p => p.theme.spacing.mult(5)}px;
   width: ${p => p.theme.spacing.mult(5)}px;
-  transition: .5s;
+  transition: .8s;
 
   ${p => p.late
     ? css`
@@ -14,7 +14,7 @@ export default styled.div`
     `
     : css`
       border-radius: 50%;
-      transform: rotate(360deg);
+      transform: rotate(180deg);
     `
   }
 `
