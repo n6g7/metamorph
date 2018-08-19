@@ -1,18 +1,18 @@
 {
-  "name": "stylay",
-  "productName": "Stylay",
+  "name": "metamorph",
+  "productName": "Metamorph",
   "version": "0.2.0",
   "description": "Compile your Stylus with ease",
   "main": "bundle.main.js",
   "author": "Nathan G <n6g7@gnab.fr>",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/n6g7/stylay.git"
+    "url": "git+ssh://git@github.com/n6g7/metamorph.git"
   },
   "bugs": {
-    "url": "https://github.com/n6g7/stylay/issues"
+    "url": "https://github.com/n6g7/metamorph/issues"
   },
-  "homepage": "https://github.com/n6g7/stylay#readme",
+  "homepage": "https://github.com/n6g7/metamorph#readme",
   "dependencies": {
     "pug": "^2.0.3",
     "stylus": "^0.54.5",

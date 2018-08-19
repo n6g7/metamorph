@@ -1,5 +1,5 @@
 {
-  "name": "stylay",
+  "name": "metamorph",
   "version": "0.2.0",
   "description": "Compile your Stylus with ease",
   "main": "app/bundle.main.js",
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/n6g7/stylay.git"
+    "url": "git+ssh://git@github.com/n6g7/metamorph.git"
   },
   "bugs": {
-    "url": "https://github.com/n6g7/stylay/issues"
+    "url": "https://github.com/n6g7/metamorph/issues"
   },
-  "homepage": "https://github.com/n6g7/stylay#readme",
+  "homepage": "https://github.com/n6g7/metamorph#readme",
   "dependencies": {
     "immutable": "^3.8.1",
     "lodash": "^4.16.4",
@@ -90,7 +90,7 @@
     ]
   },
   "build": {
-    "appId": "fr.gnab.stylay",
-    "productName": "Stylay"
+    "appId": "fr.gnab.metamorph",
+    "productName": "Metamorph"
   }
 }
