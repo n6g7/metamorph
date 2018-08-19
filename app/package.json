@@ -1,7 +1,7 @@
 {
   "name": "metamorph",
   "productName": "Metamorph",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Compile your Stylus with ease",
   "main": "bundle.main.js",
   "author": "Nathan G <n6g7@gnab.fr>",
