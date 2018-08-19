@@ -13,6 +13,7 @@ const Container = styled.section`
 class Section extends PureComponent {
   static propTypes = {
     className: PropTypes.string.isRequired,
+    colour: PropTypes.string.isRequired,
     compile: PropTypes.func.isRequired,
     files: PropTypes.instanceOf(List).isRequired,
     name: PropTypes.string.isRequired,
@@ -26,13 +27,14 @@ class Section extends PureComponent {
   }
 
   render() {
-    const { files, name } = this.props
+    const { colour, files, name } = this.props
 
     const upToDate = files.reduce((utd, file) => utd && file.get("upToDate"), true)
 
     return (
       <Container>
         <Row
+          colour={colour}
           title={ name }
           compile={this.compileAll}
           buttonLabel="Compile all"
@@ -40,6 +42,7 @@ class Section extends PureComponent {
         />
         {files.map((file, i) => (
           <Row
+            colour={colour}
             key={i}
             compile={this.compile(file)}
             late={!file.get('upToDate')}

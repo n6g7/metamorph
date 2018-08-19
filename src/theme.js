@@ -9,7 +9,8 @@ export default {
     grey: "#81818b",
     purple: "#706fd3",
     red: "#ff5252",
-    white: "#ffffff"
+    white: "#ffffff",
+    yellow: "#ffb142"
   },
   spacing: {
     mult,

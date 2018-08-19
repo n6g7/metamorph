@@ -29,12 +29,14 @@ class Sections extends PureComponent {
     return (
       <Container>
         <Section
+          colour="red"
           compile={this.props.compile}
           name="Stylus"
           remove={this.props.remove}
           files={this.getFiles(Stylus.name)}
         />
         <Section
+          colour="yellow"
           compile={this.props.compile}
           name="Pug"
           remove={this.props.remove}

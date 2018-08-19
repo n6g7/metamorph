@@ -19,7 +19,7 @@ class Footer extends PureComponent {
 
     return (
       <footer>
-        <Row title late={!upToDate} compile={compileAll} />
+        <Row title late={!upToDate} compile={compileAll} colour="purple" />
       </footer>
     )
   }

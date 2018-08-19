@@ -58,6 +58,7 @@ const FilePath = styled.ol`
 class Row extends PureComponent {
   static propTypes = {
     buttonLabel: PropTypes.string.isRequired,
+    colour: PropTypes.string.isRequired,
     compile: PropTypes.func.isRequired,
     file: PropTypes.instanceOf(Map).isRequired,
     late: PropTypes.bool.isRequired,
@@ -86,13 +87,13 @@ class Row extends PureComponent {
   }
 
   render() {
-    const { buttonLabel, compile, late, path, title } = this.props
+    const { buttonLabel, colour, compile, late, path, title } = this.props
 
     return (
       <Container title={!!title}>
         { title && <Label>{title}</Label> }
         { path && this.renderSource() }
-        { late && <Button onClick={compile}>{ buttonLabel }</Button> }
+        { late && <Button onClick={compile} colour={colour}>{ buttonLabel }</Button> }
         <Status late={late} />
       </Container>
     )

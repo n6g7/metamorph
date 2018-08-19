@@ -1,7 +1,20 @@
 import styled, { css } from "styled-components"
 
+const getColour = props => {
+  switch(props.colour) {
+    case "purple":
+      return props.theme.colours.purple
+    case "red":
+      return props.theme.colours.red
+    case "yellow":
+      return props.theme.colours.yellow
+    default:
+      return props.theme.colours.red
+  }
+}
+
 export default styled.button`
-  background: ${p => p.theme.colours.red};
+  background: ${getColour};
   border: none;
   border-radius: ${p => p.theme.spacing.mult(0.5)}px;
   color: ${p => p.theme.colours.white};
