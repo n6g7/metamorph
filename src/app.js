@@ -2,14 +2,17 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
 import { ipcRenderer } from "electron"
+import { ThemeProvider } from "styled-components"
 
 import store from "./redux/store"
 import App from "./components/App"
-import "./assets/style.styl"
+import theme from "./theme"
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </Provider>,
   document.getElementById("app"),
 )
