@@ -72,13 +72,13 @@ const template = [
       {
         label: "GitHub project",
         click() {
-          shell.openExternal("https://github.com/n6g7/stylay")
+          shell.openExternal("https://github.com/n6g7/metamorph")
         },
       },
       {
         label: "Report an issue",
         click() {
-          shell.openExternal("https://github.com/n6g7/stylay/issues")
+          shell.openExternal("https://github.com/n6g7/metamorph/issues")
         },
       },
     ],

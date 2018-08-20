@@ -1,6 +1,6 @@
 {
-  "name": "stylay",
-  "version": "0.2.0",
+  "name": "metamorph",
+  "version": "0.2.1",
   "description": "Compile your Stylus with ease",
   "main": "app/bundle.main.js",
   "author": "Nathan G <n6g7@gnab.fr>",
@@ -9,7 +9,7 @@
     "build": "yarn build:js && electron-builder",
     "build:js": "webpack",
     "dev": "NODE_ENV=dev electron .",
-    "serve": "yarn build:js && webpack-dev-server",
+    "serve": "yarn build:js --mode development && webpack-dev-server --mode development",
     "start": "electron .",
     "test": "yarn test:format && yarn test:lint",
     "test:format": "prettier -l \"src/**/*.js\"",
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/n6g7/stylay.git"
+    "url": "git+ssh://git@github.com/n6g7/metamorph.git"
   },
   "bugs": {
-    "url": "https://github.com/n6g7/stylay/issues"
+    "url": "https://github.com/n6g7/metamorph/issues"
   },
-  "homepage": "https://github.com/n6g7/stylay#readme",
+  "homepage": "https://github.com/n6g7/metamorph#readme",
   "dependencies": {
     "immutable": "^3.8.1",
     "lodash": "^4.16.4",
@@ -34,30 +34,32 @@
     "redux": "^3.6.0",
     "redux-immutable": "^3.0.8",
     "redux-logger": "^2.7.0",
+    "styled-components": "^3.4.2",
     "stylus": "^0.54.5"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
     "babel-eslint": "^8.2.6",
-    "babel-loader": "^6.2.5",
+    "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.17.0",
-    "css-loader": "^0.23.1",
+    "css-loader": "^1.0.0",
     "electron": "^2.0.7",
-    "electron-builder": "^20.27.1",
+    "electron-builder": "^20.28.1",
     "eslint": "^5.3.0",
-    "eslint-plugin-react": "^7.10.0",
-    "file-loader": "^0.9.0",
-    "img-loader": "^1.3.1",
+    "eslint-plugin-react": "^7.11.0",
+    "file-loader": "^1.1.11",
+    "img-loader": "^3.0.0",
     "json-loader": "^0.5.7",
     "prettier": "^1.14.2",
-    "style-loader": "^0.13.1",
+    "style-loader": "^0.22.1",
     "stylus": "^0.54.5",
-    "stylus-loader": "^2.3.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.2"
+    "stylus-loader": "^3.0.2",
+    "url-loader": "^1.1.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
   },
   "babel": {
     "presets": [
@@ -88,7 +90,7 @@
     ]
   },
   "build": {
-    "appId": "fr.gnab.stylay",
-    "productName": "Stylay"
+    "appId": "fr.gnab.metamorph",
+    "productName": "Metamorph"
   }
 }

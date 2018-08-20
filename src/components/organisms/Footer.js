@@ -1,8 +1,10 @@
 import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import { List } from "immutable"
+import { connect } from "react-redux"
 
-import CompileButton from "./common/CompileButton"
+import { Row } from "../molecules"
+import { compileAll } from "../../redux/actions"
 
 class Footer extends PureComponent {
   static propTypes = {
@@ -17,10 +19,19 @@ class Footer extends PureComponent {
 
     return (
       <footer>
-        <CompileButton label="Compile All" late={!upToDate} onClick={compileAll} />
+        <Row title late={!upToDate} compile={compileAll} colour="purple" />
       </footer>
     )
   }
 }
 
-export default Footer
+const mapStateToProps = state => ({
+  files: state.get("files"),
+})
+
+const mapDispatchToProps = { compileAll }
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Footer)

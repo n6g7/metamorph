@@ -3,30 +3,31 @@ module.exports = {
     main: "./src/main",
     renderer: "./src/app",
   },
+  mode: "production",
   target: "electron-renderer",
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel",
+        use: ["babel-loader"],
       },
       {
         test: /\.styl$/,
         exclude: /node_modules/,
-        loader: "style!css!stylus",
+        use: ["style-loader","css-loader","stylus-loader"],
       },
       {
         test: /\.json$/,
-        loader: "json",
+        use: ["json-loader"],
       },
       {
         test: /\.svg$/,
-        loader: "url!img",
+        use: ["url-loader","img-loader"],
       },
       {
         test: /\.ttf$/,
-        loader: "file",
+        use: ["file-loader"],
       },
     ],
   },
